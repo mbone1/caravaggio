@@ -3,8 +3,9 @@ import { Canvas, useFrame, useLoader } from "react-three-fiber";
 import './index.css'
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import taking from './example.glb'
-import { useProgress, Html, Reflector, useTexture } from "@react-three/drei";
+import { useProgress, Html, Reflector, useTexture, Text} from "@react-three/drei";
 import water from './water.jpg'
+import marble from './marble.jpg'
 
 
 function Box(props) {
@@ -64,23 +65,22 @@ function Art() {
 }
     
 function GlassFloor() {
-  const distortionMap = useTexture(water);
+  const distortionMap = useTexture(marble);
 
   return (
     <Suspense fallback={<Loader />}>
       <Reflector
         args={[30, 10]}
         resolution={1024}
-        mirror={0.9}
+        mirror={.99}
         position={[-0.1, -6.3, -3]}
         rotation={[-1.3, 0, 0]}
         mixStrength={0.9}
         depthToBlurRatioBias={0.6}
         depthScale={0.7}
-        distortion={0.01}
+        distortion={0.04}
         distortionMap={distortionMap}
       />
-      //{" "}
     </Suspense>
   );
 
@@ -111,16 +111,18 @@ export default function App() {
       <Suspense fallback={<Loader />}>
         <Box position={[0, 0, -7.7]} />
         <Art />
-        <GlassFloor/>
-        {/* <Reflector
-          args={[30, 10]}
-          resolution={1024}
-          mirror={.9}
-          position={[-.1, -6.3, -3]}
-          rotation={[-1.3, 0, 0]}
-          mixStrength={0.9}
-          depthScale={1}
-        distortionMap={distortionMap}></Reflector> */}
+        <Text
+          color="white" // default
+          anchorX={-4} // default
+          anchorY={-3} // default
+          position-Y={10}
+          letterSpacing={.6}
+          fontSize={.1}
+        >
+          The Taking of Christ - 1620
+        </Text>
+        <GlassFloor />
+        
       </Suspense>
     </Canvas>
   );

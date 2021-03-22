@@ -1,7 +1,11 @@
-import React, { useRef, useState } from "react";
-import { Canvas, useFrame } from "react-three-fiber";
+import React, { useRef, useState, Suspense } from "react";
+import { Canvas, useFrame, useLoader } from "react-three-fiber";
 import './index.css'
-import img from'./taking.jpg'
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import taking from './example.glb'
+import { useProgress, Html, Reflector, useTexture } from "@react-three/drei";
+import water from './water.jpg'
+
 
 function Box(props) {
   // This reference will give us direct access to the mesh
@@ -11,37 +15,113 @@ function Box(props) {
   const [active, setActive] = useState(false);
   // Rotate mesh every frame, this is outside of React without overhead
   useFrame(() => {
-    mesh.current.rotation.x = mesh.current.rotation.y += 0.01;
+    mesh.current.rotation.x = mesh.current.rotation.y += 0.05;
   });
+  
   return (
-    <mesh
-      // {...props}
-      ref={mesh}
-      scale={active ? [1.5, 1.5, 1.5] : [1, 1, 1]}
-      onClick={(e) => setActive(!active)}
-      onPointerOver={(e) => setHover(true)}
-      onPointerOut={(e) => setHover(false)}>
-      <boxBufferGeometry args={[1, 1, 1]} />
-      <meshStandardMaterial>
-        <texture
-          attach="map"
-          image={img}
-          onUpdate={(self) => img && (self.needsUpdate = true)}/>
-      </meshStandardMaterial>
-    </mesh>
+      <mesh
+        {...props}
+        ref={mesh}
+        scale={active ? [1.5, 1.5, 1.5] : [1, 1, 1]}
+        onClick={(e) => setActive(!active)}
+        onPointerOver={(e) => setHover(true)}
+        onPointerOut={(e) => setHover(false)}>
+        <boxBufferGeometry args={[1, 1, 1]} />
+        <meshStandardMaterial
+          color={active ? "green" : "purple"}></meshStandardMaterial>
+      </mesh>
+  );
+}
+     
+
+function Art() {
+
+  const [active, setActive] = useState(false)
+    const [hovered, setHover] = useState(false);
+
+  const primitive = useRef()  
+  useFrame(() => {
+    primitive.current.rotation.y += 0.00000001;
+  })
+  
+      const gltf = useLoader(GLTFLoader, taking);
+      return (
+        <group>
+          <primitive
+            ref={primitive}
+            object={gltf.scene}
+            onClick={(e) => setActive(!active)}
+            onPointerOver={(e) => setHover(true)}
+            onPointerOut={(e) => setHover(false)}
+            attach="geometry"
+            args={[0, 0, 0]}
+            position={[0, 2.5, -8.9]}
+            rotation={[0.0, 0, 0.01]}
+            scale={[1.03, 1.03, 0.4]}
+          />
+        </group>
+      );
+}
+    
+function GlassFloor() {
+  const distortionMap = useTexture(water);
+
+  return (
+    <Suspense fallback={<Loader />}>
+      <Reflector
+        args={[30, 10]}
+        resolution={1024}
+        mirror={0.9}
+        position={[-0.1, -6.3, -3]}
+        rotation={[-1.3, 0, 0]}
+        mixStrength={0.9}
+        depthToBlurRatioBias={0.6}
+        depthScale={0.7}
+        distortion={0.01}
+        distortionMap={distortionMap}
+      />
+      //{" "}
+    </Suspense>
+  );
+
+}
+
+function Loader() {
+  const { progress } = useProgress();
+  return (
+    <Html center>
+      <h1>{Math.trunc(progress)} % loaded</h1>
+    </Html>
   );
 }
 
 export default function App() {
+
+
+
+
+
+
+
   return (
-  
-      <Canvas>
-        <ambientLight intensity={0.01} />
-        <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
-        <pointLight position={[-10, -10, -10]} />
-        <Box position={[0, 0, 0]} />
-        {/* <Box position={[1.2, 0, 0]} /> */}
-      </Canvas>
-  
+    <Canvas>
+      <ambientLight intensity={1.3} />
+      {/* <spotLight position={[0, 20, ]} angle={0.6} penumbra={1} /> */}
+      {/* <pointLight position={[-10, -10, -10]} /> */}
+      <Suspense fallback={<Loader />}>
+        <Box position={[0, 0, -7.7]} />
+        <Art />
+        <GlassFloor/>
+        {/* <Reflector
+          args={[30, 10]}
+          resolution={1024}
+          mirror={.9}
+          position={[-.1, -6.3, -3]}
+          rotation={[-1.3, 0, 0]}
+          mixStrength={0.9}
+          depthScale={1}
+        distortionMap={distortionMap}></Reflector> */}
+      </Suspense>
+    </Canvas>
   );
 }

@@ -12,7 +12,8 @@ import {
 } from "@react-three/drei";
 import marble from "./marble.jpg";
 import { Text } from "troika-three-text";
-import { useSpring, animated as a } from "react-spring/three";
+import { useSpring, a, animated } from "react-spring/three";
+// import { animated } from "react-spring/renderprops-universal";
 
 // import { GeometryUtils } from "three/examples/jsm/utils/GeometryUtils";
 // import { Vector3 } from "three";
@@ -73,7 +74,7 @@ function GlassFloor() {
 
 export default function App() {
   const [rotation, setRotation] = useState([0, 0, 0, 0]);
-  const [active, setActive] = useState(false);
+  const [active, setActive] = useState(true);
   const [hovered, setHover] = useState(false);
   // const [hovered, setHover] = useState(false);
 
@@ -137,12 +138,15 @@ export default function App() {
   
 
   const { ...spingus } = useSpring({
-    // position: active ? 0.9 : 0.2,
-    config: {
-        mass: 1500,
-        tension: 9000,
-        friction: 3000,
-      },
+    // points: active ? points :  [0, 3.5, -4.9],
+    // position: active? [0, 2.5, -4.9] : [0, 3.5, -4.9],
+    // color: active ? "green" : "red",
+    lineWidth: active? 1 : 0
+    // config: {
+    //     mass: 1500,
+    //     tension: 9000,
+    //     friction: 3000,
+    //   },
   })
   
   
@@ -166,22 +170,31 @@ export default function App() {
     ]);
   };
 
+  
+
+
   function Picture() {
     const gltf = useLoader(GLTFLoader, taking);
     return (
       // <Suspense fallback={<Loader />}>
-        <primitive
+        <a.primitive
         object={gltf.scene}
         rotation={rotation}
         attach="geometry"
         args={[0, 0, 0]}
         position={[0, 2.5, -4.9]}
         scale={[1, 1, 1]}
+        onClick={() => setActive(!active)}
+        // {...spingus}
         />
       // {/* </Suspense> */}
     
     );
   }
+
+  const AnimatedLine = animated(Line)
+  
+ 
 
   return (
     <Canvas onMouseMove={onMouseMove}>
@@ -197,32 +210,34 @@ export default function App() {
         <Box position={[0, 0, -4.7]} />
 
         <Picture />
-
-        <Line
-          // {}
-          // rotation={rotation}
-          points={points}
-          color="white"
-          lineWidth={0.6}
-        />
-        <Line
-          // rotation={rotation}
-          points={des2points}
-          color="white"
-          lineWidth={0.6}
-        />
-        <Line
-          // rotation={rotation}
-          points={des3points}
-          color="white"
-          lineWidth={0.6}
-        />
-        <Line
-          // rotation={rotation}
-          points={des4points}
-          color="white"
-          lineWidth={0.6}
-        />
+        <group >
+          <AnimatedLine
+            // {}
+            // rotation={rotation}
+            points={points}
+            color="white"
+            lineWidth={0.6}
+            {...spingus}
+          />
+          <Line
+            // rotation={rotation}
+            points={des2points}
+            color="white"
+            lineWidth={0.6}
+          />
+          <Line
+            // rotation={rotation}
+            points={des3points}
+            color="white"
+            lineWidth={0.6}
+          />
+          <Line
+            // rotation={rotation}
+            points={des4points}
+            color="white"
+            lineWidth={0.6}
+          />
+        </group>
         <text
           anchorX={-7.9}
           // rotation={rotation}

@@ -12,7 +12,7 @@ import { useSpring,  animated } from "react-spring/three";
 export default function WayPoints() {
 
   const AnimatedLine = animated(Line);
-  const [active, setActive] = useActiveStore(ActiveContext);
+  const [active] = useActiveStore(ActiveContext);
   
   const { ...spingus } = useSpring({
     scale: active ? [0, 20, 0] : [1, 1, 1],

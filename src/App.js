@@ -1,22 +1,14 @@
-import React, { useRef, useState, Suspense } from "react";
-import { Canvas, useFrame, useLoader, extend } from "react-three-fiber";
+import React, { useState, Suspense } from "react";
+import { Canvas, useLoader } from "react-three-fiber";
 import "./index.css";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import taking from "./takingofchristframed.glb";
 import {
   useProgress,
-  Html,
-  Reflector,
-  useTexture,
-  Line,
+  Html
 } from "@react-three/drei";
-import marble from "./marble.jpg";
-import { Text } from "troika-three-text";
-// import { useSpring, a, animated } from "react-spring/three";
 import {  ActiveProvider} from './store.js';
-import { RotateContext, useRotateStore, RotateProvider } from './store2.js';
 import BigBox from './Box'
-// import Loader from './Loader'
 import Waypoints from './Waypoints'
 import GlassFloor from './GlassFloor'
 import Info from './Info'
@@ -27,7 +19,7 @@ import { a } from "react-spring/three";
 
 
 export default function App() {
-  const [rotate, setRotate] = useState([]);
+  const [rotate, setRotate] = useState([0, 0, 0]);
   const onMouseMove = (e) => {
     e.stopPropagation()
     setRotate([
@@ -42,6 +34,7 @@ export default function App() {
     return (
       <Suspense fallback={<Loader />}>
         <a.primitive
+          // onMouseMove={onMouseMove}
           object={gltf.scene}
           rotation={rotate}
           attach="geometry"
@@ -66,9 +59,9 @@ export default function App() {
 
   
   return (
-    <Canvas onMouseMove={onMouseMove}>
-      <Suspense fallback={<Loader />}>
-            <ActiveProvider>
+      <Canvas onMouseMove={onMouseMove}>
+        <Suspense fallback={<Loader />}>
+          <ActiveProvider>
             <ambientLight intensity={0.83} />
             <pointLight
               position={[0, 20, 10]}
@@ -76,15 +69,15 @@ export default function App() {
               penumbra={2}
               intensity={0.7}
             />
-            <Painting/>
+            <Painting />
             <BigBox position={[0, 0, -4.7]} />
             <Waypoints />
             <Info />
             <GlassFloor />
           </ActiveProvider>
-      </Suspense>
-    </Canvas>
-);
+        </Suspense>
+      </Canvas>
+  );
 }
 
 

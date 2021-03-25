@@ -1,19 +1,7 @@
-import React, { useRef, useState, Suspense } from "react";
-import { Canvas, useFrame, useLoader, extend } from "react-three-fiber";
-import "./index.css";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import taking from "./takingofchristframed.glb";
-import {
-  useProgress,
-  Html,
-  Reflector,
-  useTexture,
-  Line,
-} from "@react-three/drei";
-import marble from "./marble.jpg";
-import { Text } from "troika-three-text";
-import { useSpring, a, animated } from "react-spring/three";
-import { useActiveStore, ActiveProvider, ActiveContext } from "./store.js";
+import React, { useRef } from "react";
+import {useFrame } from "react-three-fiber";
+
+import { useActiveStore, ActiveContext } from "./store.js";
 
 export default function BigBox() {
   const [active, setActive] = useActiveStore(ActiveContext);

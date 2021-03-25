@@ -18,23 +18,28 @@ import { useActiveStore, ActiveProvider, ActiveContext } from "./store.js";
 export default function BigBox() {
   const [active, setActive] = useActiveStore(ActiveContext);
 
-  // const mesh = useRef();
-  // const [hovered, setHover] = useState(false);
-  // const [size, setSize] = useState(false);
-  // useFrame(() => {
-  //   mesh.current.rotation.x = mesh.current.rotation.y += 0.05;
-  // });
+
+  const handleClick = (e) => {
+    // e.stopPropagation()
+    setActive(!active)
+  }
+
+  const mesh = useRef();
+  useFrame(() => {
+    mesh.current.rotation.x = mesh.current.rotation.y = mesh.current.rotation.z += 0.1;
+  });
   return (
     <mesh
-    //   {...spongus}
-      // ref={mesh}
+      // {...props}
+      //   {...spongus}
+      ref={mesh}
       // scale={ ? [1.5, 1.5, 1.5] : [1, 1, 1]}
-      onClick={(e) => setActive(!active)}
+      onClick={(e) => handleClick()}
       // onPointerOver={(e) => setHover(true)}
       // onPointerOut={(e) => setHover(false)}
       position={[8, -1.4, -3]}>
       <boxBufferGeometry args={[1, 1, 1]} />
-      <meshStandardMaterial color={"purple"}></meshStandardMaterial>
+      <meshStandardMaterial color={"darkgrey"} transparent></meshStandardMaterial>
     </mesh>
   );
 }

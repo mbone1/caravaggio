@@ -31,7 +31,7 @@ export default function Info() {
   const { ...spingus } = useSpring({
     scale: active ? [0, 20, 0] : [1, 1, 1],
     // color: active ? "white" : "black",
-    rotation: active ? [0, -13.16, THREE.Math.degToRad(1)] : [0, 0, 0],
+    // rotation: active ? [0, 0, 0] : [0, 0, 0],
     config: { mass: 1, tension: 280, friction: 60 },
   });
   

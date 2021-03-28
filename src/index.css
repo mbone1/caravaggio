@@ -46,3 +46,7 @@ canvas {
     pointer-events: none;
     overflow: hidden;
 }
+
+.loading {
+    color: "white" !important
+}

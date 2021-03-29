@@ -6,22 +6,14 @@ import taking from "./takingofchristframed.glb";
 import { a, useSpring } from "react-spring/three";
 import { useActiveStore, ActiveContext } from "./store.js";
 
-// import { useRotateStore, RotateContext, RotateProvider } from "./store2.js";
-// import {
-//   useProgress,
-//   Html,
-//   Reflector,
-//   useTexture,
-//   Line,
-// } from "@react-three/drei";
 
 
 
-export default function Painting() {
-  //   const [rotate, setRotate] = useRotateStore();
+
+export default function Painting(props) {
     const gltf = useLoader(GLTFLoader, taking);
     const [rotate, setRotate] = useState([0, 0, 0]);
-    const [zoom, setZoom] = useState()
+    const [zoom, setZoom] = useState(false)
     const [active, setActive] = useActiveStore(ActiveContext);
     
     const zoomer = (e) => {
@@ -31,11 +23,21 @@ export default function Painting() {
         } 
     }
 
+    let defaultPosy = [0,20,0]
+
+    let posy = (e) => {
+        if (props.currentPainting === "TOC") { return [0, 2.5, -4.9] } else {
+            return defaultPosy
+        }
+    }
+        
+
+
     
     
-  const { ...props } = useSpring({
+  const { ...zoomProps } = useSpring({
       scale: zoom ? [1, 1, 1] : [1, 1, 1],
-      position: zoom ? [0, 2.5, -4.9] : [0, .36, 0],
+      position: zoom ? posy() : [0, .36, 0],
     // color: active ? "white" : "black",
     // rotation: active ? [0, 0, 0] : [0, 0, 0],
     config: { mass: 1, tension: 280, friction: 60 },
@@ -56,7 +58,7 @@ export default function Painting() {
 
   return (
       <a.primitive
-          {...props}
+          {...zoomProps}
       object={gltf.scene}
         rotation={rotate}
      onClick={(e) => zoomer()}

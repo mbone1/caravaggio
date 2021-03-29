@@ -29,10 +29,11 @@ export default function Info() {
     "Commisioned by Roman nobleman Ciriaco Mattei in 1602, this painting depicts the arrest of Jesus.There are seven figures in the painting: from left to right they are John, Jesus, Judas, three soldiers (the one farthest to the right barely visible in the rear), and a man holding a lantern to the scene. They are standing, and only the upper three-quarters of their bodies are depicted. Judas has just kissed Jesus to identify him for the soldiers.  ";
     
   const { ...spingus } = useSpring({
-    scale: active ? [0, 20, 0] : [1, 1, 1],
-    // color: active ? "white" : "black",
+    // scale: active ? [0, 20, 0] : [1, 1, 1],
+    color: active ? "black" : "white",
+    delay: 250,
     // rotation: active ? [0, 0, 0] : [0, 0, 0],
-    config: { mass: 1, tension: 280, friction: 60 },
+    // config: { mass: 1, tension: 280, friction: 60 },
   });
   const { ...spongus } = useSpring({
     // scale: active ? [0, 20, 0] : [1, 1, 1],
@@ -40,12 +41,7 @@ export default function Info() {
     // rotation: active ? [0, 0, 0] : [0, 0, 0],
     config: { mass: 1, tension: 280, friction: 60 },
   });
-  
-    const textOptions = {
-    // size: 5,
-    // height: 1,
-    color: "white",
-    fontSize: 2  };
+
 
   
     return (

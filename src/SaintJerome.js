@@ -1,0 +1,62 @@
+import React, { useState } from "react";
+import { useLoader } from "react-three-fiber";
+import "./index.css";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import jerome from "./stjeromeframed.glb";
+import { a, useSpring } from "react-spring/three";
+import { useActiveStore, ActiveContext } from "./store.js";
+
+export default function SaintJerome(props) {
+  const gltf = useLoader(GLTFLoader, jerome);
+  const [rotate, setRotate] = useState([0, 0, 0]);
+  const [zoom, setZoom] = useState(false);
+  const [active, setActive] = useActiveStore(ActiveContext);
+
+  const zoomer = (e) => {
+    setZoom(!zoom);
+    if (!active) {
+      setActive(!active);
+    }
+  };
+
+  let defaultPosy = [0, 20, 0];
+
+  let posy = (e) => {
+    if (props.currentPainting === "ST") {
+      return [0, 2.5, -4.9];
+    } else {
+      return defaultPosy;
+    }
+  };
+
+  const { ...zoomProps } = useSpring({
+    scale: zoom ? [1, 1, 1] : [1, 1, 1],
+    position: zoom ? posy() : [0, 0.36, 0],
+    // color: active ? "white" : "black",
+    // rotation: active ? [0, 0, 0] : [0, 0, 0],
+    config: { mass: 1, tension: 280, friction: 60 },
+  });
+
+  //  const onMouseMove = (e) => {
+  //    setRotate([
+  //      ((e.clientY / e.target.offsetHeight - 0.5) * -Math.PI) / 50,
+  //      ((e.clientX / e.target.offsetWidth - 0.5) * -Math.PI) / 50,
+  //      0,
+  //    ]);
+  //  };
+
+  // const handleClick = (e) => {
+  //     setZoom(!zoom)
+  // }
+
+  return (
+    <a.primitive
+      {...zoomProps}
+      object={gltf.scene}
+      rotation={rotate}
+      onClick={(e) => zoomer()}
+      attach="geometry"
+      args={[0, 0, 0]}
+    />
+  );
+}

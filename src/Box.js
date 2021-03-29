@@ -8,7 +8,6 @@ export default function BigBox() {
 
 
   const handleClick = (e) => {
-    // e.stopPropagation()
     setActive(!active)
   }
 
@@ -18,13 +17,8 @@ export default function BigBox() {
   });
   return (
     <mesh
-      // {...props}
-      //   {...spongus}
       ref={mesh}
-      // scale={ ? [1.5, 1.5, 1.5] : [1, 1, 1]}
       onClick={(e) => handleClick()}
-      // onPointerOver={(e) => setHover(true)}
-      // onPointerOut={(e) => setHover(false)}
       position={[8, -1.4, -3]}>
       <boxBufferGeometry args={[1, 1, 1]} />
       <meshStandardMaterial color={"darkgrey"} transparent></meshStandardMaterial>

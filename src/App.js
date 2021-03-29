@@ -11,17 +11,20 @@ import GlassFloor from './GlassFloor'
 import Info from './Info'
 import { a } from "react-spring/three";
 import Painting from './Painting'
+import SaintJerome from './SaintJerome'
 
 export default function App() {
   const [rotate, setRotate] = useState([0, 0, 0]);
-  const onMouseMove = (e) => {
-    // e.stopPropagation()
-    setRotate([
-      ((e.clientY / e.target.offsetHeight - 0.5) * -Math.PI) / 50,
-      ((e.clientX / e.target.offsetWidth - 0.5) * -Math.PI) / 50,
-      0,
-    ]);
-  };
+  const [currentPainting, setCurrentPainting] = useState("ST");
+
+  // const onMouseMove = (e) => {
+  //   // e.stopPropagation()
+  //   setRotate([
+  //     ((e.clientY / e.target.offsetHeight - 0.5) * -Math.PI) / 50,
+  //     ((e.clientX / e.target.offsetWidth - 0.5) * -Math.PI) / 50,
+  //     0,
+  //   ]);
+  // };
 
   // useFrame((state) => {
   //   if (ref.current) {
@@ -82,23 +85,32 @@ export default function App() {
   
   return (
     <Canvas camera={{ position: [0, 0, 5] }}>
-        <Suspense fallback={<Loader />}>
-          <ActiveProvider>
-            <ambientLight intensity={0.83} />
-            <pointLight
-              position={[0, 20, 10]}
-              angle={0.7}
-              penumbra={2}
-              intensity={0.7}
-            />
-            <Painting rotate={rotate} />
-            <BigBox position={[0, 0, -4.7]} />
-          <Waypoints rotate={rotate}/>
-            <Info rotate={rotate}/>
-            <GlassFloor />
-          </ActiveProvider>
-        </Suspense>
-      </Canvas>
+      <Suspense fallback={<Loader />}>
+        <ActiveProvider>
+          <ambientLight intensity={0.83} />
+          <pointLight
+            position={[0, 20, 10]}
+            angle={0.7}
+            penumbra={2}
+            intensity={0.7}
+          />
+          <Painting currentPainting={currentPainting} />
+          <SaintJerome currentPainting={currentPainting} />
+          <BigBox position={[0, 0, -4.7]} />
+          <Waypoints rotate={rotate} />
+          <Info rotate={rotate} />
+          <GlassFloor />
+        <mesh
+          onClick={(e) => setCurrentPainting("TOC")}
+          position={[-6, -1.4, -3]}>
+          <boxBufferGeometry args={[1, 1, 1]} />
+          <meshStandardMaterial
+            color={"darkgrey"}
+            transparent></meshStandardMaterial>
+        </mesh>
+        </ActiveProvider>
+      </Suspense>
+    </Canvas>
   );
 }
 

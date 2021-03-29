@@ -1,34 +1,27 @@
-import React, { useState, Suspense, useRef } from "react";
-import { Canvas, useLoader, useFrame } from "react-three-fiber";
+import React, { useState, Suspense } from "react";
+import { Canvas, useLoader } from "react-three-fiber";
 import "./index.css";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import taking from "./takingofchristframed.glb";
-import {
-  useProgress,
-  Html
-} from "@react-three/drei";
+import { useProgress, Html } from "@react-three/drei";
 import {  ActiveProvider} from './store.js';
 import BigBox from './Box'
 import Waypoints from './Waypoints'
 import GlassFloor from './GlassFloor'
 import Info from './Info'
-import { a, useSpring } from "react-spring/three";
-
-
-
-
-
+import { a } from "react-spring/three";
+import Painting from './Painting'
 
 export default function App() {
   const [rotate, setRotate] = useState([0, 0, 0]);
-  // const onMouseMove = (e) => {
-  //   e.stopPropagation()
-  //   setRotate([
-  //     ((e.clientY / e.target.offsetHeight - 0.5) * -Math.PI) / 50,
-  //     ((e.clientX / e.target.offsetWidth - 0.5) * -Math.PI) / 50,
-  //     0,
-  //   ]);
-  // };
+  const onMouseMove = (e) => {
+    // e.stopPropagation()
+    setRotate([
+      ((e.clientY / e.target.offsetHeight - 0.5) * -Math.PI) / 50,
+      ((e.clientX / e.target.offsetWidth - 0.5) * -Math.PI) / 50,
+      0,
+    ]);
+  };
 
   // useFrame((state) => {
   //   if (ref.current) {
@@ -47,31 +40,31 @@ export default function App() {
   // });
 
 
-  const gltf = useLoader(GLTFLoader, taking);
+  // const gltf = useLoader(GLTFLoader, taking);
   
-  function Painting() {
+  // function Painting() {
 
-    return (
-        <a.primitive
-        object={gltf.scene}
-        rotation={rotate}
-        onClick={(e) => {
-          setRotate([
-            // ((e.clientY / e.target.offsetHeight - 0.5) * -Math.PI) / 200,
-            // ((e.clientX / e.target.offsetWidth - 0.5) * -Math.PI) / 200,
-            0,
-            0,
-            0,
-          ]);
+  //   return (
+  //       <a.primitive
+  //       object={gltf.scene}
+  //       rotation={rotate}
+  //       onClick={(e) => {
+  //         setRotate([
+  //           ((e.clientY / e.target.offsetHeight - 0.5) * -Math.PI) / 200,
+  //           ((e.clientX / e.target.offsetWidth - 0.5) * -Math.PI) / 200,
+  //           0,
+  //           // 0,
+  //           // 0,
+  //         ]);
 
-  }}
-        attach="geometry"
-        args={[0, 0, 0]}
-        position={[0, 2.5, -4.9]}
-        scale={[1, 1, 1]}
-      />
-      );
-    }
+  // }}
+  //       attach="geometry"
+  //       args={[0, 0, 0]}
+  //       position={[0, 2.5, -4.9]}
+  //       scale={[1, 1, 1]}
+  //     />
+  //     );
+  //   }
           
 
 
@@ -88,7 +81,7 @@ export default function App() {
 
   
   return (
-      <Canvas>
+    <Canvas camera={{ position: [0, 0, 5] }}>
         <Suspense fallback={<Loader />}>
           <ActiveProvider>
             <ambientLight intensity={0.83} />
@@ -98,16 +91,21 @@ export default function App() {
               penumbra={2}
               intensity={0.7}
             />
-            <Painting />
+            <Painting rotate={rotate} />
             <BigBox position={[0, 0, -4.7]} />
-            <Waypoints />
-            <Info />
+          <Waypoints rotate={rotate}/>
+            <Info rotate={rotate}/>
             <GlassFloor />
           </ActiveProvider>
         </Suspense>
       </Canvas>
   );
 }
+
+
+
+
+
 
 
   

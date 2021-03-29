@@ -34,7 +34,19 @@ export default function Info() {
     // rotation: active ? [0, 0, 0] : [0, 0, 0],
     config: { mass: 1, tension: 280, friction: 60 },
   });
+  const { ...spongus } = useSpring({
+    // scale: active ? [0, 20, 0] : [1, 1, 1],
+    color: active ? "black" : "white",
+    // rotation: active ? [0, 0, 0] : [0, 0, 0],
+    config: { mass: 1, tension: 280, friction: 60 },
+  });
   
+    const textOptions = {
+    // size: 5,
+    // height: 1,
+    color: "white",
+    fontSize: 2  };
+
   
     return (
       <>
@@ -45,11 +57,13 @@ export default function Info() {
           position-z={-4.8}
           text={text}
           maxWidth={5}
+          // rotation={props.rotate}
           fontSize={0.2}>
-          <meshPhongMaterial attach="material" />
+          <meshPhongMaterial  attach="material" />
+           
         </AnimatedText>
         <AnimatedText
-          // {...spingus}
+          {...spongus}
           anchorX={13.9}
           anchorY={-0.8}
           position-z={-4.8}
@@ -59,7 +73,7 @@ export default function Info() {
           <meshPhongMaterial attach="material" />
         </AnimatedText>
         <AnimatedText
-          // {...spingus}
+          {...spongus}
           anchorX={13.7}
           anchorY={-0.0}
           position-z={-4.8}

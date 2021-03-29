@@ -9,7 +9,7 @@ import { useSpring,  animated } from "react-spring/three";
 
 
 
-export default function WayPoints() {
+export default function WayPoints(props) {
 
   const AnimatedLine = animated(Line);
   const [active] = useActiveStore(ActiveContext);
@@ -84,7 +84,7 @@ export default function WayPoints() {
     <>
       <AnimatedLine
         // {}
-        // rotation={rotation}
+        // rotation={props.rotate}
         points={points}
         color="white"
         // lineWidth={0.6}

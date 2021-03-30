@@ -9,10 +9,10 @@ export default function GlassFloor() {
     <Reflector
       args={[40, 10]}
       resolution={1024}
-      mirror={1.0}
-      position={[-0.0, -4.1, -2]}
-      rotation={[-1.32, 0, 0]}
-      mixStrength={0.7}
+      mirror={1}
+      position={[-0.0, -4.1, -1]}
+      rotation={[-1.26, 0, 0]}
+      mixStrength={.75}
       depthToBlurRatioBias={0.7}
       depthScale={0.6}
       distortion={0.019}

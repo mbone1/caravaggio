@@ -17,7 +17,7 @@ export default function DavidWiththeHeadofGoliath(props) {
     }
   };
 
-  let defaultPosy = [0, 0, -200];
+  let defaultPosy = [0, -20, 0];
 
   let posy = (e) => {
     if (props.currentPainting === "DG") {
@@ -32,7 +32,7 @@ export default function DavidWiththeHeadofGoliath(props) {
     position: zoom ? [0, 0, 0] : posy(),
     // color: active ? "white" : "black",
     // rotation: active ? [0, 0, 0] : [0, 0, 0],
-    config: { mass: 1, tension: 280, friction: 60 },
+    config: { mass: 1, tension: 175, friction: 60 },
   });
 
   //  const onMouseMove = (e) => {

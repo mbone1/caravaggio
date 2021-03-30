@@ -120,7 +120,7 @@ export default function App() {
           <GlassFloor />
         <mesh
           onClick={(e) => handleClick()}
-          position={[-6, -1.4, -3]}>
+          position={[-8, -1.4, -3]}>
           <boxBufferGeometry args={[1, 1, 1]} />
           <meshStandardMaterial
             color={"darkgrey"}

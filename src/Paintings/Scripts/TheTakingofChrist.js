@@ -11,7 +11,6 @@ import { useActiveStore, ActiveContext } from "../../store.js";
 
 export default function TheTakingofChrist(props) {
     const gltf = useLoader(GLTFLoader, taking);
-    const [rotate, setRotate] = useState([0, 0, 0]);
     const [zoom, setZoom] = useState(false)
     const [active, setActive] = useActiveStore(ActiveContext);
     
@@ -22,10 +21,11 @@ export default function TheTakingofChrist(props) {
         } 
     }
 
-    let defaultPosy = [0,0, -200]
+  let defaultPosy = [0, -20, 0]
+  let spings = [0,1,0]
 
     let posy = (e) => {
-        if (props.currentPainting === "TOC") { return [0, 2.5, -4.9] } else {
+        if (props.currentPainting === "TOC") { return [0, 2.8, -4.9] } else {
             return defaultPosy
         }
     }
@@ -36,10 +36,11 @@ export default function TheTakingofChrist(props) {
     
   const { ...zoomProps } = useSpring({
       scale: zoom ? [1, 1, 1] : [1, 1, 1],
-      position: zoom ?  [0,.36,0]: posy(),
+    position: zoom ? [0, .36, 0] : posy(),
+      // onRest: {position: spings},
     // color: active ? "white" : "black",
     // rotation: active ? [0, 0, 0] : [0, 0, 0],
-    config: { mass: 1, tension: 280, friction: 60 },
+    config: { mass: 1, tension: 175, friction: 60 },
   });
   
 
@@ -59,7 +60,6 @@ export default function TheTakingofChrist(props) {
       <a.primitive
           {...zoomProps}
       object={gltf.scene}
-        rotation={rotate}
      onClick={(e) => zoomer()}
 
       attach="geometry"

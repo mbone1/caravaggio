@@ -18,7 +18,7 @@ export default function TheIncredulityofStThomas(props) {
     }
   };
 
-  let defaultPosy = [0, 0, -200];
+  let defaultPosy = [0, -20, 0];
 
   let posy = (e) => {
     if (props.currentPainting === "DT") {
@@ -32,8 +32,12 @@ export default function TheIncredulityofStThomas(props) {
     scale: zoom ? [1, 1, 1] : [1, 1, 1],
     position: zoom ? [0, 0, 0] : posy(),
     // color: active ? "white" : "black",
+    // from: { position: defaultPosy },
+    // to: { position: posy() },
+    // reverse: true,
+    
     // rotation: active ? [0, 0, 0] : [0, 0, 0],
-    config: { mass: 1, tension: 280, friction: 60 },
+    config: { mass: 1, tension: 175, friction: 60 },
   });
 
   //  const onMouseMove = (e) => {

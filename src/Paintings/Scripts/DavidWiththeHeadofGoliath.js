@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 import { useLoader } from "react-three-fiber";
-import "./index.css";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import david from "./davidwithheadofgoliath.glb";
+import david from "../3d Files/davidwithheadofgoliath.glb";
 import { a, useSpring } from "react-spring/three";
-import { useActiveStore, ActiveContext } from "./store.js";
+import { useActiveStore, ActiveContext } from "../../store.js";
 
 export default function DavidWiththeHeadofGoliath(props) {
   const gltf = useLoader(GLTFLoader, david);
-  const [rotate, setRotate] = useState([0, 0, 0]);
-  const [zoom, setZoom] = useState(false);
+  const [zoom, setZoom] = useState();
   const [active, setActive] = useActiveStore(ActiveContext);
 
   const zoomer = (e) => {
@@ -31,7 +29,7 @@ export default function DavidWiththeHeadofGoliath(props) {
 
   const { ...zoomProps } = useSpring({
     scale: zoom ? [1, 1, 1] : [1, 1, 1],
-    position: zoom ? posy() : [0, 0.36, 0],
+    position: zoom ? [0, 0, 0] : posy(),
     // color: active ? "white" : "black",
     // rotation: active ? [0, 0, 0] : [0, 0, 0],
     config: { mass: 1, tension: 280, friction: 60 },
@@ -53,7 +51,7 @@ export default function DavidWiththeHeadofGoliath(props) {
     <a.primitive
       {...zoomProps}
       object={gltf.scene}
-      rotation={rotate}
+    //   rotation={rotate}
       onClick={(e) => zoomer()}
       attach="geometry"
       args={[0, 0, 0]}

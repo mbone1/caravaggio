@@ -1,18 +1,18 @@
 import React, { useState, Suspense } from "react";
-import { Canvas, useLoader } from "react-three-fiber";
+import { Canvas } from "react-three-fiber";
 import "./index.css";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import taking from "./takingofchristframed.glb";
+// import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+// import taking from "./takingofchristframed.glb";
 import { useProgress, Html } from "@react-three/drei";
 import {  ActiveProvider} from './store.js';
 import BigBox from './Box'
 import Waypoints from './Waypoints'
 import GlassFloor from './GlassFloor'
 import Info from './Info'
-import { a } from "react-spring/three";
-import TheTakingofChrist from './TheTakingofChrist'
-import SaintJerome from './SaintJerome'
-import DavidWiththeHeadofGoliath from './DavidWiththeHeadofGoliath'
+// import { a } from "react-spring/three";
+import TheTakingofChrist from './Paintings/Scripts/TheTakingofChrist'
+import SaintJerome from './Paintings/Scripts/SaintJerome'
+import DavidWiththeHeadofGoliath from './Paintings/Scripts/DavidWiththeHeadofGoliath'
 
 export default function App() {
   const [rotate, setRotate] = useState([0, 0, 0]);

@@ -1,10 +1,9 @@
 import React, {useState} from "react";
 import {useLoader} from "react-three-fiber";
-import "./index.css";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import taking from "./takingofchristframed.glb";
+import taking from "../3d Files/takingofchristframed.glb";
 import { a, useSpring } from "react-spring/three";
-import { useActiveStore, ActiveContext } from "./store.js";
+import { useActiveStore, ActiveContext } from "../../store.js";
 
 
 
@@ -37,7 +36,7 @@ export default function TheTakingofChrist(props) {
     
   const { ...zoomProps } = useSpring({
       scale: zoom ? [1, 1, 1] : [1, 1, 1],
-      position: zoom ? posy() : [0, .36, 0],
+      position: zoom ?  [0,.36,0]: posy(),
     // color: active ? "white" : "black",
     // rotation: active ? [0, 0, 0] : [0, 0, 0],
     config: { mass: 1, tension: 280, friction: 60 },

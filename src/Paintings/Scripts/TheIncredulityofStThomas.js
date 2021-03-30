@@ -21,7 +21,7 @@ export default function TheIncredulityofStThomas(props) {
   let defaultPosy = [0, -20, 0];
 
   let posy = (e) => {
-    if (props.currentPainting === "DT") {
+    if (props.counter === 4) {
       return [0, 2.5, -4.9];
     } else {
       return defaultPosy;

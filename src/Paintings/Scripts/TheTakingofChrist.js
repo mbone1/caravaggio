@@ -13,6 +13,7 @@ export default function TheTakingofChrist(props) {
     const gltf = useLoader(GLTFLoader, taking);
     const [zoom, setZoom] = useState(false)
     const [active, setActive] = useActiveStore(ActiveContext);
+    let defaultPosition = [0, -20, 0]
     
     const zoomer = (e) => {
         setZoom(!zoom)
@@ -21,52 +22,37 @@ export default function TheTakingofChrist(props) {
         } 
     }
 
-  let defaultPosy = [0, -20, 0]
-  let spings = [0,1,0]
-
     let posy = (e) => {
-        if (props.currentPainting === "TOC") { return [0, 2.8, -4.9] } else {
-            return defaultPosy
+        if (props.counter === 0) { return [0, 2.8, -4.9] } else {
+            return defaultPosition
         }
     }
+
         
-
-
+    const { ...zoomProps } = useSpring({
+        scale: zoom ? [1, 1, 1] : [1, 1, 1],
+      position: zoom ? [0, .36, 0] : posy(),
+        // onRest: {position: spings},
+      // color: active ? "white" : "black",
+      // rotation: active ? [0, 0, 0] : [0, 0, 0],
+      config: { mass: 1, tension: 175, friction: 60 },
+    });
     
-    
-  const { ...zoomProps } = useSpring({
-      scale: zoom ? [1, 1, 1] : [1, 1, 1],
-    position: zoom ? [0, .36, 0] : posy(),
-      // onRest: {position: spings},
-    // color: active ? "white" : "black",
-    // rotation: active ? [0, 0, 0] : [0, 0, 0],
-    config: { mass: 1, tension: 175, friction: 60 },
-  });
+
+    return (
+        <a.primitive
+            {...zoomProps}
+        object={gltf.scene}
+       onClick={(e) => zoomer()}
+       attach="geometry"
+       args={[0, 0, 0]}
+       />
   
+        );
+      }
 
-    //  const onMouseMove = (e) => {
-    //    setRotate([
-    //      ((e.clientY / e.target.offsetHeight - 0.5) * -Math.PI) / 50,
-    //      ((e.clientX / e.target.offsetWidth - 0.5) * -Math.PI) / 50,
-    //      0,
-    //    ]);
-    //  };
-
-    // const handleClick = (e) => {
-    //     setZoom(!zoom)
-    // }
-
-  return (
-      <a.primitive
-          {...zoomProps}
-      object={gltf.scene}
-     onClick={(e) => zoomer()}
-
-      attach="geometry"
-      args={[0, 0, 0]}
-      />
-      );
-    }
+    
+    
 
 
   

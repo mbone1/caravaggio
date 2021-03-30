@@ -15,12 +15,14 @@ import SaintJerome from './Paintings/Scripts/SaintJerome'
 import DavidWiththeHeadofGoliath from './Paintings/Scripts/DavidWiththeHeadofGoliath'
 import CardSharps from './Paintings/Scripts/CardSharps'
 import TheIncredulityofStThomas from "./Paintings/Scripts/TheIncredulityofStThomas";
+import data from './Paintings/data'
 
 export default function App() {
-  const paintings = ["ST", "TOC", "DT", "DG", "CS"]
+  // const paintings = ["ST", "TOC", "DT", "DG", "CS"]
   let [counter, setCounter] = useState(0)
   // const [rotate, setRotate] = useState([0, 0, 0]);
-  const [currentPainting, setCurrentPainting] = useState(paintings[counter]);
+  // const [currentPainting, setCurrentPainting] = useState(paintings[counter]);
+  const [currentPainting, setCurrentPainting] = useState(data[counter]);
 
 
   // const onMouseMove = (e) => {
@@ -87,17 +89,19 @@ export default function App() {
   }
   
   function handleClick() {
-    if (counter === paintings.length - 1) {
+    if (counter === data.length - 1) {
       setCounter(0)
-      setCurrentPainting(paintings[counter])
+      setCurrentPainting(data[counter])
     } else {
-      setCounter(counter++);
-      setCurrentPainting(paintings[counter]);
-      console.log(counter);
+      setCounter(counter+1);
+      setCurrentPainting(data[counter]);
+      console.log(currentPainting);
+      console.log(data[counter])
     }
   }
 
-  
+  // console.log(data.length)
+
   return (
     <Canvas camera={{ position: [0, 0, 5] }}>
       <Suspense fallback={<Loader />}>
@@ -109,23 +113,21 @@ export default function App() {
             penumbra={2}
             intensity={0.7}
           />
-          <TheTakingofChrist currentPainting={currentPainting} />
-          <SaintJerome currentPainting={currentPainting} />
-          <DavidWiththeHeadofGoliath currentPainting={currentPainting} />
-          <CardSharps currentPainting={currentPainting} />
-          <TheIncredulityofStThomas currentPainting={currentPainting}/>
+          <TheTakingofChrist counter={counter}/>
+          <CardSharps counter={counter} />
+          <DavidWiththeHeadofGoliath counter={counter}/>
+          <SaintJerome counter={counter} />
+          <TheIncredulityofStThomas counter={counter}/>
           <BigBox position={[0, 0, -4.7]} />
-          <Waypoints/>
-          <Info/>
+          <Waypoints counter={counter} />
+          <Info counter={counter} />
           <GlassFloor />
-        <mesh
-          onClick={(e) => handleClick()}
-          position={[-8, -1.4, -3]}>
-          <boxBufferGeometry args={[1, 1, 1]} />
-          <meshStandardMaterial
-            color={"darkgrey"}
-            transparent></meshStandardMaterial>
-        </mesh>
+          <mesh onClick={(e) => handleClick()} position={[-8, -1.4, -3]}>
+            <boxBufferGeometry args={[1, 1, 1]} />
+            <meshStandardMaterial
+              color={"darkgrey"}
+              transparent></meshStandardMaterial>
+          </mesh>
         </ActiveProvider>
       </Suspense>
     </Canvas>

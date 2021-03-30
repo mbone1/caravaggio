@@ -21,7 +21,7 @@ export default function CardSharps(props) {
   let defaultPosy = [0, -20, 0];
 
   let posy = (e) => {
-    if (props.currentPainting === "CS") {
+    if (props.counter === 1) {
       return [0, 2.5, -4.9];
     } else {
       return defaultPosy;

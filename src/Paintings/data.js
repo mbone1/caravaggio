@@ -58,10 +58,112 @@ let data = [
       },
     ],
   },
-  {},
-  {},
-  {},
-  {},
+
+  {
+    name: "The Cardsharps",
+    info: [
+      {
+        coords: { x: -7.9, y: -6.8, z: -4.8 },
+        maxWidth: 7,
+        text: "efe",
+      },
+      {
+        coords: { x: 9.8, y: -6, z: -4.8 },
+        maxWidth: 2.8,
+        text: "feas",
+      },
+      {
+        coords: { x: -7.8, y: -2.1, z: -4.8 },
+        maxWidth: 6.8,
+        text: "ef",
+      },
+
+      {
+        coords: { x: 11.8, y: -4, z: -4.8 },
+        maxWidth: 4.8,
+        text: "asdfasdfrtasdfasdftrt",
+      },
+    ],
+  },
+
+  {
+    name: "David with the Head of Goliath",
+    info: [
+      {
+        coords: { x: -7.9, y: -6.8, z: -4.8 },
+        maxWidth: 7,
+        text: "eawaszz",
+      },
+      {
+        coords: { x: 9.8, y: -6, z: -4.8 },
+        maxWidth: 2.8,
+        text: "afsdf",
+      },
+      {
+        coords: { x: -7.8, y: -2.1, z: -4.8 },
+        maxWidth: 6.8,
+        text: "frefe",
+      },
+
+      {
+        coords: { x: 11.8, y: -4, z: -4.8 },
+        maxWidth: 4.8,
+        text: "fff",
+      },
+    ],
+  },
+  {
+    name: "Saint Jerome Writing",
+    info: [
+      {
+        coords: { x: -7.9, y: -6.8, z: -4.8 },
+        maxWidth: 7,
+        text: "eeefase",
+      },
+      {
+        coords: { x: 9.8, y: -6, z: -4.8 },
+        maxWidth: 2.8,
+        text: "zzz",
+      },
+      {
+        coords: { x: -7.8, y: -2.1, z: -4.8 },
+        maxWidth: 6.8,
+        text: "eeer",
+      },
+
+      {
+        coords: { x: 11.8, y: -4, z: -4.8 },
+        maxWidth: 4.8,
+        text: "vcxcvzx",
+      },
+    ],
+  },
+  {
+    name: "The Incredulity of Saint Thomas",
+    info: [
+      {
+        coords: { x: -7.9, y: -6.8, z: -4.8 },
+        maxWidth: 7,
+        text: "zxcvd",
+      },
+      {
+        coords: { x: 9.8, y: -6, z: -4.8 },
+        maxWidth: 2.8,
+        text: "resasdf",
+      },
+      {
+        coords: { x: -7.8, y: -2.1, z: -4.8 },
+        maxWidth: 6.8,
+        text: "zxcvrg",
+      },
+
+      {
+        coords: { x: 11.8, y: -4, z: -4.8 },
+        maxWidth: 4.8,
+        text: "dfasdf",
+      },
+    ],
+  },
 ];
 
 export default data;

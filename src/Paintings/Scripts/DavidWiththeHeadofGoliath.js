@@ -20,7 +20,7 @@ export default function DavidWiththeHeadofGoliath(props) {
   let defaultPosy = [0, -20, 0];
 
   let posy = (e) => {
-    if (props.currentPainting === "DG") {
+    if (props.counter === 2) {
       return [0, 2.5, -4.9];
     } else {
       return defaultPosy;

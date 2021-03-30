@@ -22,7 +22,7 @@ export default function TheTakingofChrist(props) {
         } 
     }
 
-    let defaultPosy = [0,20,0]
+    let defaultPosy = [0,0, -200]
 
     let posy = (e) => {
         if (props.currentPainting === "TOC") { return [0, 2.5, -4.9] } else {

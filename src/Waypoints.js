@@ -9,7 +9,7 @@ import { useSpring,  animated } from "react-spring/three";
 
 
 
-export default function WayPoints(props) {
+export default function WayPoints() {
 
   const AnimatedLine = animated(Line);
   const [active] = useActiveStore(ActiveContext);

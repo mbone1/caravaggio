@@ -13,10 +13,15 @@ import Info from './Info'
 import TheTakingofChrist from './Paintings/Scripts/TheTakingofChrist'
 import SaintJerome from './Paintings/Scripts/SaintJerome'
 import DavidWiththeHeadofGoliath from './Paintings/Scripts/DavidWiththeHeadofGoliath'
+import CardSharps from './Paintings/Scripts/CardSharps'
+import TheIncredulityofStThomas from "./Paintings/Scripts/TheIncredulityofStThomas";
 
 export default function App() {
-  const [rotate, setRotate] = useState([0, 0, 0]);
-  const [currentPainting, setCurrentPainting] = useState("DAVID");
+  const paintings = ["ST", "TOC", "DT", "DG", "CS"]
+  let [counter, setCounter] = useState(0)
+  // const [rotate, setRotate] = useState([0, 0, 0]);
+  const [currentPainting, setCurrentPainting] = useState(paintings[counter]);
+
 
   // const onMouseMove = (e) => {
   //   // e.stopPropagation()
@@ -81,7 +86,16 @@ export default function App() {
     );
   }
   
-  
+  function handleClick() {
+    if (counter === paintings.length - 1) {
+      setCounter(0)
+      setCurrentPainting(paintings[counter])
+    } else {
+      setCounter(counter++);
+      setCurrentPainting(paintings[counter]);
+      console.log(counter);
+    }
+  }
 
   
   return (
@@ -98,12 +112,14 @@ export default function App() {
           <TheTakingofChrist currentPainting={currentPainting} />
           <SaintJerome currentPainting={currentPainting} />
           <DavidWiththeHeadofGoliath currentPainting={currentPainting} />
+          <CardSharps currentPainting={currentPainting} />
+          <TheIncredulityofStThomas currentPainting={currentPainting}/>
           <BigBox position={[0, 0, -4.7]} />
-          <Waypoints rotate={rotate} />
-          <Info rotate={rotate} />
+          <Waypoints/>
+          <Info/>
           <GlassFloor />
         <mesh
-          onClick={(e) => setCurrentPainting("TOC")}
+          onClick={(e) => handleClick()}
           position={[-6, -1.4, -3]}>
           <boxBufferGeometry args={[1, 1, 1]} />
           <meshStandardMaterial

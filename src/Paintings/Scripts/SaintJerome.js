@@ -18,7 +18,7 @@ export default function SaintJerome(props) {
     }
   };
 
-  let defaultPosy = [0, 20, 0];
+  let defaultPosy = [0, 0, -200];
 
   let posy = (e) => {
     if (props.currentPainting === "ST") {

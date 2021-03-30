@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { useLoader } from "react-three-fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import david from "../3d Files/davidwithheadofgoliath.glb";
+import stthomas from "../3d Files/theincredulityofstthomas.glb";
 import { a, useSpring } from "react-spring/three";
 import { useActiveStore, ActiveContext } from "../../store.js";
 
-export default function DavidWiththeHeadofGoliath(props) {
-  const gltf = useLoader(GLTFLoader, david);
-  const [zoom, setZoom] = useState();
+export default function TheIncredulityofStThomas(props) {
+  const gltf = useLoader(GLTFLoader, stthomas);
+  const [rotate, setRotate] = useState([0, 0, 0]);
+  const [zoom, setZoom] = useState(false);
   const [active, setActive] = useActiveStore(ActiveContext);
 
   const zoomer = (e) => {
@@ -20,7 +21,7 @@ export default function DavidWiththeHeadofGoliath(props) {
   let defaultPosy = [0, 0, -200];
 
   let posy = (e) => {
-    if (props.currentPainting === "DG") {
+    if (props.currentPainting === "DT") {
       return [0, 2.5, -4.9];
     } else {
       return defaultPosy;
@@ -51,7 +52,7 @@ export default function DavidWiththeHeadofGoliath(props) {
     <a.primitive
       {...zoomProps}
       object={gltf.scene}
-    //   rotation={rotate}
+      rotation={rotate}
       onClick={(e) => zoomer()}
       attach="geometry"
       args={[0, 0, 0]}

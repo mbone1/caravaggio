@@ -10,12 +10,13 @@ import Waypoints from './Waypoints'
 import GlassFloor from './GlassFloor'
 import Info from './Info'
 import { a } from "react-spring/three";
-import Painting from './Painting'
+import TheTakingofChrist from './TheTakingofChrist'
 import SaintJerome from './SaintJerome'
+import DavidWiththeHeadofGoliath from './DavidWiththeHeadofGoliath'
 
 export default function App() {
   const [rotate, setRotate] = useState([0, 0, 0]);
-  const [currentPainting, setCurrentPainting] = useState("ST");
+  const [currentPainting, setCurrentPainting] = useState("DAVID");
 
   // const onMouseMove = (e) => {
   //   // e.stopPropagation()
@@ -94,8 +95,9 @@ export default function App() {
             penumbra={2}
             intensity={0.7}
           />
-          <Painting currentPainting={currentPainting} />
+          <TheTakingofChrist currentPainting={currentPainting} />
           <SaintJerome currentPainting={currentPainting} />
+          <DavidWiththeHeadofGoliath currentPainting={currentPainting} />
           <BigBox position={[0, 0, -4.7]} />
           <Waypoints rotate={rotate} />
           <Info rotate={rotate} />

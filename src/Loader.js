@@ -15,7 +15,7 @@ export default function Loader() {
   const { progress } = useProgress();
   return (
     <Html center>
-      <h1>{Math.trunc(progress)} % loaded</h1>
+      <h1 style={{color: "white"}}>{Math.trunc(progress)} % loaded</h1>
     </Html>
   );
 }

@@ -16,9 +16,13 @@ import DavidWiththeHeadofGoliath from './Paintings/Scripts/DavidWiththeHeadofGol
 import CardSharps from './Paintings/Scripts/CardSharps'
 import TheIncredulityofStThomas from "./Paintings/Scripts/TheIncredulityofStThomas";
 import data from './Paintings/data'
+// import { useActiveStore, ActiveContext } from "./store.js";
+
+
 
 export default function App() {
   // const paintings = ["ST", "TOC", "DT", "DG", "CS"]
+  // const [active, setActive] = useActiveStore(ActiveContext);
   let [counter, setCounter] = useState(0)
   // const [rotate, setRotate] = useState([0, 0, 0]);
   // const [currentPainting, setCurrentPainting] = useState(paintings[counter]);

@@ -7,7 +7,6 @@ import { useActiveStore, ActiveContext } from "../../store.js";
 
 export default function CardSharps(props) {
   const gltf = useLoader(GLTFLoader, cardsharps);
-  const [rotate, setRotate] = useState([0, 0, 0]);
   const [zoom, setZoom] = useState(false);
   const [active, setActive] = useActiveStore(ActiveContext);
 
@@ -52,7 +51,6 @@ export default function CardSharps(props) {
     <a.primitive
       {...zoomProps}
       object={gltf.scene}
-      rotation={rotate}
       onClick={(e) => zoomer()}
       attach="geometry"
       args={[0, 0, 0]}

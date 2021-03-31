@@ -7,7 +7,6 @@ import { useActiveStore, ActiveContext } from "../../store.js";
 
 export default function SaintJerome(props) {
   const gltf = useLoader(GLTFLoader, jerome);
-  const [rotate, setRotate] = useState([0, 0, 0]);
   const [zoom, setZoom] = useState(false);
   const [active, setActive] = useActiveStore(ActiveContext);
 
@@ -52,7 +51,6 @@ export default function SaintJerome(props) {
     <a.primitive
       {...zoomProps}
       object={gltf.scene}
-      rotation={rotate}
       onClick={(e) => zoomer()}
       attach="geometry"
       args={[0, 0, 0]}

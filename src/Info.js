@@ -29,6 +29,7 @@ export default function Info(props) {
       <>
           <AnimatedText
             {...fadeIn}
+            key={stuff.coords.x-stuff.coords.y}
             anchorX={stuff.coords.x}
             anchorY={stuff.coords.y}
             position-z={stuff.coords.z}

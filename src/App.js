@@ -107,8 +107,8 @@ export default function App() {
   // console.log(data.length)
 
   return (
-    <Canvas camera={{ position: [0, 0, 5] }}>
       <Suspense fallback={<Loader />}>
+    <Canvas camera={{ position: [0, 0, 5] }}>
         <ActiveProvider>
           <ambientLight intensity={0.83} />
           <pointLight
@@ -117,6 +117,7 @@ export default function App() {
             penumbra={2}
             intensity={0.7}
           />
+      <Suspense fallback={<Loader />}>
           <TheTakingofChrist counter={counter}/>
           <CardSharps counter={counter} />
           <DavidWiththeHeadofGoliath counter={counter}/>
@@ -126,6 +127,7 @@ export default function App() {
           <Waypoints counter={counter} />
           <Info counter={counter} />
           <GlassFloor />
+            </Suspense>
           <mesh onClick={(e) => handleClick()} position={[-8, -1.4, -3]}>
             <boxBufferGeometry args={[1, 1, 1]} />
             <meshStandardMaterial
@@ -133,8 +135,9 @@ export default function App() {
               transparent></meshStandardMaterial>
           </mesh>
         </ActiveProvider>
-      </Suspense>
+      {/* <Loader/> */}
     </Canvas>
+      </Suspense>
   );
 }
 

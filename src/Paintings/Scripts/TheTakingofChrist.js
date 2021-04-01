@@ -37,6 +37,8 @@ export default function TheTakingofChrist(props) {
       // rotation: active ? [0, 0, 0] : [0, 0, 0],
       config: { mass: 1, tension: 175, friction: 60 },
     });
+  
+  
     
 
     return (
@@ -44,7 +46,8 @@ export default function TheTakingofChrist(props) {
             {...zoomProps}
         object={gltf.scene}
        onClick={(e) => zoomer()}
-       attach="geometry"
+        attach="geometry"
+        rotation={props.rotate}
        args={[0, 0, 0]}
        />
   

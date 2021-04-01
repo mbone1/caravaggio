@@ -61,29 +61,55 @@ let data = [
 
   {
     name: "The Cardsharps",
+    description: "wefasdf",
+    threeDFile: takingofchristframed,
+    points: [
+        // [
+        //   [4.7, 4.7, -4.99],
+        //   [6.7, 6.2, -4.1],
+        //   [7.2, 6.2, -4.1],
+        // ],
+      [
+        [-0.4, 4.4, -4.68],
+        [-1, 6.25, -4.1],
+        [-7.5, 5.45, -4.1],
+      ],
+      [
+        [3.7, 0.8, -4.99],
+        [3.8, 1.4, -4.1],
+        [7.2, 1.3, -4.1],
+      ],
+        [
+          [-3, 2.2, -4.68],
+          [-4, 1.45, -4.1],
+          [-7.49, 2.55, -4.1],
+        ],
+    ],
     info: [
+    //   {
+    //     coords: { x: -7.9, y: -6.8, z: -4.8 },
+    //     maxWidth: 7,
+    //     text: "efe",
+    //   },
       {
-        coords: { x: -7.9, y: -6.8, z: -4.8 },
-        maxWidth: 7,
-        text: "efe",
-      },
-      {
-        coords: { x: 9.8, y: -6, z: -4.8 },
+        coords: { x: 10.8, y: -6, z: -4.8 },
         maxWidth: 2.8,
-        text: "feas",
+        text:
+          "The older cardsharp is signalling his accomplice. Notice how his fingertips are exposed, better for him to feel marked cards.",
       },
       {
-        coords: { x: -7.8, y: -2.1, z: -4.8 },
-        maxWidth: 6.8,
-        text: "ef",
+        coords: { x: -7.9, y: -1.5, z: -4.8 },
+        maxWidth: 3.8,
+        text: "Notice the young cheat pulling a hidden card from his breeches.",
       },
 
       {
-        coords: { x: 11.8, y: -4, z: -4.8 },
-        maxWidth: 4.8,
-        text: "asdfasdfrtasdfasdftrt",
+        coords: { x: 11.8, y: -2.9, z: -4.8 },
+        maxWidth: 3.8,
+        text: "The young dupe is unaware of the older cardsharp signalling.",
       },
     ],
+    analysis: "https://www.kimbellart.org/collection/ap-198706",
   },
 
   {

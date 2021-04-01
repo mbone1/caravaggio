@@ -99,8 +99,8 @@ export default function App() {
     } else {
       setCounter(counter+1);
       setCurrentPainting(data[counter]);
-      console.log(currentPainting);
-      console.log(data[counter])
+      // console.log(currentPainting);
+      // console.log(data[counter])
     }
   }
 

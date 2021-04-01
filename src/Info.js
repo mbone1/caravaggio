@@ -25,7 +25,7 @@ export default function Info(props) {
 //maps over the coordinates/text content for each datapoint
   return (
     <>
-      {data[props.counter].info.map((stuff) => (
+      {/* {data[props.counter].info.map((stuff) => (
       <>
           <AnimatedText
             {...fadeIn}
@@ -39,7 +39,7 @@ export default function Info(props) {
            <meshPhongMaterial attach="material" />
           <AnimatedText/>
           </>
-        ))}
+        ))} */}
        </>
     );
 }

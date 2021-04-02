@@ -17,7 +17,9 @@ export default function App() {
     const { progress } = useProgress();
     return (
       <Html center>
-        <h1>{Math.trunc(progress)} % loaded</h1>
+        <h1>CARAVAGGIO</h1>
+        <span>{currentPainting}</span>
+        <h2>{Math.trunc(progress)} % loaded</h2>
       </Html>
     );
   }

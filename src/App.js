@@ -7,7 +7,7 @@ import {  ActiveProvider} from './store.js';
 import BigBox from './Box'
 import data from './Paintings/data'
 import Painting from './Paintings/Scripts/Painting.js'
-import { v4 as uuidv4 } from "uuid";
+// import { v4 as uuidv4 } from "uuid";
 
 export default function App() {
   let [counter, setCounter] = useState(0)
@@ -18,7 +18,7 @@ export default function App() {
     return (
       <Html center>
         <h1>CARAVAGGIO</h1>
-        <span>{currentPainting}</span>
+        {/* <span>{currentPainting}</span> */}
         <h2>{Math.trunc(progress)} % loaded</h2>
       </Html>
     );
@@ -48,11 +48,11 @@ export default function App() {
             penumbra={2}
             intensity={0.7}
           />
-          <Painting counter={counter} key={uuidv4()} index={0} />
-          <Painting counter={counter} key={uuidv4()} index={1} />
-          <Painting counter={counter} key={uuidv4()} index={2} />
-          <Painting counter={counter} key={uuidv4()} index={3} />
-          <Painting counter={counter} key={uuidv4()} index={4} />
+          <Painting counter={counter} index={0} />
+          <Painting counter={counter} index={1} />
+          <Painting counter={counter}  index={2} />
+          <Painting counter={counter}  index={3} />
+          <Painting counter={counter} currentpainting={currentPainting} index={4} />
           <BigBox position={[0, 0, -4.7]} />
           <GlassFloor />
           <mesh onClick={(e) => handleClick()} position={[-8, -1.4, -3]}>

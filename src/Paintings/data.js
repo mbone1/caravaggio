@@ -145,11 +145,7 @@ let data = [
     },
     threeDFile: david,
     points: [
-      // [
-      //   [4.7, 4.7, -4.99],
-      //   [6.7, 6.2, -4.1],
-      //   [7.2, 6.2, -4.1],
-      // ],
+ 
       [
         [-1.4, 4.4, -4.68],
         [-3, 5.25, -4.1],
@@ -160,11 +156,7 @@ let data = [
         [4.8, -0.4, -4.1],
         [7.2, 1.3, -4.1],
       ],
-      //   [
-      //     [-3, 2.2, -4.68],
-      //     [-4, 1.45, -4.1],
-      //     [-7.49, 2.55, -4.1],
-      //   ],
+
     ],
     info: [
       {
@@ -179,12 +171,6 @@ let data = [
         text:
           "Although the head here appears to be more of a generic face, in other versions of this scene Caravaggio used himself as a model.",
       },
-
-      //   {
-      //     coords: { x: 11.8, y: -2.9, z: -4.8 },
-      //     maxWidth: 3.8,
-      //     text: "TEXT TEXT TEXT TEXT TEXT text text text text text",
-      //   },
     ],
     analysis: "https://www.kimbellart.org/collection/ap-198706",
   },
@@ -204,11 +190,7 @@ let data = [
     },
     threeDFile: stjerome,
     points: [
-      // [
-      //   [4.7, 4.7, -4.99],
-      //   [6.7, 6.2, -4.1],
-      //   [7.2, 6.2, -4.1],
-      // ],
+
       [
         [-0.4, 4.4, -4.68],
         [-1, 6.25, -4.1],

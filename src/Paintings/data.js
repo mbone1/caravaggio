@@ -1,9 +1,9 @@
 // import jerome from "./3d Files/stjeromeframed.glb";
-import takingofchristframed from './3d Files/takingofchristframed.glb'
-import cardsharps from './3d Files/cardsharps.glb'
-import david from './3d Files/davidwithheadofgoliath.glb'
-import stjerome from './3d Files/stjeromeframed.glb'
-import stthomas from './3d Files/theincredulityofstthomas.glb'
+import takingofchristframed from "./3d Files/takingofchristframed.glb";
+import cardsharps from "./3d Files/cardsharps.glb";
+import david from "./3d Files/davidwithheadofgoliath.glb";
+import stjerome from "./3d Files/stjeromeframed.glb";
+import stthomas from "./3d Files/theincredulityofstthomas.glb";
 
 let data = [
   {
@@ -49,7 +49,7 @@ let data = [
       {
         coords: { x: -7.9, y: -6.8, z: -4.8 },
         maxWidth: 7,
-        text:
+        text: 
           "The figure holding the lantern is believed to be a self-portrait of Caravaggio; also, presumably, representing St Peter, who would first betray Jesus by denying him, and then go on to bring 'the light of Christ' to the world.",
       },
       {
@@ -138,7 +138,7 @@ let data = [
     },
     description: {
       text:
-        "This painting from 1607 appears to depict the exact moment referenced in Samuel 17:57, 'When David came back after killing the Philistine, Abner took him and presented him to Saul with the Philistine's head still in his hand. Caravaggio painted this scene multiple times. This version is housed at the Kunsthistorischese Museum Gemäldegalerie in Vienna.",
+        "This painting from 1607 appears to depict the exact moment referenced in Samuel 17:57, 'When David came back after killing the Philistine, Abner took him and presented him to Saul with the Philistine's head still in his hand.' Caravaggio painted this scene multiple times. This version is housed at the Kunsthistorischese Museum Gemäldegalerie in Vienna.",
       coords: { x: -7.1, y: -5.7, z: -4.8 },
       maxWidth: 7,
       size: 0.3,
@@ -157,32 +157,34 @@ let data = [
       ],
       [
         [3.7, 0.2, -4.99],
-        [4.8, -.4, -4.1],
+        [4.8, -0.4, -4.1],
         [7.2, 1.3, -4.1],
       ],
-    //   [
-    //     [-3, 2.2, -4.68],
-    //     [-4, 1.45, -4.1],
-    //     [-7.49, 2.55, -4.1],
-    //   ],
+      //   [
+      //     [-3, 2.2, -4.68],
+      //     [-4, 1.45, -4.1],
+      //     [-7.49, 2.55, -4.1],
+      //   ],
     ],
     info: [
       {
         coords: { x: 10.8, y: -6, z: -4.8 },
         maxWidth: 2.8,
-        text: "The model for David in both this and the other version are thought by some as Cecco, a boy known to have been Caravaggio's servant in Rome in the early 17th century. Cecco may have been identical to Cecco Del Caravaggio, an artist active in Rome and painting very much in Caravaggio's manner.",
+        text:
+          "The model for David in both this and the other version are thought by some as Cecco, a boy known to have been Caravaggio's servant in Rome in the early 17th century. Cecco may have been identical to Cecco Del Caravaggio, an artist active in Rome and painting very much in Caravaggio's manner.",
       },
       {
         coords: { x: -7.9, y: -1.5, z: -4.8 },
         maxWidth: 3.8,
-        text: "Although the head here appears to be more of a generic face, in other versions of this scene Caravaggio used himself as a model.",
+        text:
+          "Although the head here appears to be more of a generic face, in other versions of this scene Caravaggio used himself as a model.",
       },
 
-    //   {
-    //     coords: { x: 11.8, y: -2.9, z: -4.8 },
-    //     maxWidth: 3.8,
-    //     text: "TEXT TEXT TEXT TEXT TEXT text text text text text",
-    //   },
+      //   {
+      //     coords: { x: 11.8, y: -2.9, z: -4.8 },
+      //     maxWidth: 3.8,
+      //     text: "TEXT TEXT TEXT TEXT TEXT text text text text text",
+      //   },
     ],
     analysis: "https://www.kimbellart.org/collection/ap-198706",
   },

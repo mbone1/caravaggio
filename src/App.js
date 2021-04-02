@@ -10,12 +10,13 @@ import Waypoints from './Waypoints'
 import GlassFloor from './GlassFloor'
 import Info from './Info'
 // import { a } from "react-spring/three";
-import TheTakingofChrist from './Paintings/Scripts/TheTakingofChrist'
-import SaintJerome from './Paintings/Scripts/SaintJerome'
-import DavidWiththeHeadofGoliath from './Paintings/Scripts/DavidWiththeHeadofGoliath'
-import CardSharps from './Paintings/Scripts/CardSharps'
-import TheIncredulityofStThomas from "./Paintings/Scripts/TheIncredulityofStThomas";
+// import TheTakingofChrist from './Paintings/Scripts/TheTakingofChrist'
+// import SaintJerome from './Paintings/Scripts/SaintJerome'
+// import DavidWiththeHeadofGoliath from './Paintings/Scripts/DavidWiththeHeadofGoliath'
+// import CardSharps from './Paintings/Scripts/CardSharps'
+// import TheIncredulityofStThomas from "./Paintings/Scripts/TheIncredulityofStThomas";
 import data from './Paintings/data'
+import Painting from './Paintings/Scripts/Painting.js'
 // import { useActiveStore, ActiveContext } from "./store.js";
 
 
@@ -118,11 +119,16 @@ export default function App() {
             intensity={0.7}
           />
       {/* <Suspense fallback={<Loader />}> */}
-          <TheTakingofChrist counter={counter}/>
+          {/* <TheTakingofChrist counter={counter}/>
           <CardSharps counter={counter} />
           <DavidWiththeHeadofGoliath counter={counter}/>
           <SaintJerome counter={counter} />
-          <TheIncredulityofStThomas counter={counter}/>
+          <TheIncredulityofStThomas counter={counter}/> */}
+          <Painting counter={counter} index={0} />
+          <Painting counter={counter} index={1} />
+          <Painting counter={counter} index={2} />
+          <Painting counter={counter} index={3} />
+          <Painting counter={counter} index={4} />
           <BigBox position={[0, 0, -4.7]} />
           <Waypoints counter={counter} />
           <Info counter={counter} />

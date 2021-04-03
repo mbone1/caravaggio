@@ -5,13 +5,13 @@ import marble from "./marble.jpg";
 import marblefloor from './water.jpg'
 
 export default function GlassFloor(props) {
-  let maxDistortion = .015
-  let minDistortion = 0
+  // let maxDistortion = .015
+  // let minDistortion = 0
   let maxHeight = -4.4
   let minHeight = -4.8
   const distortionMap = useTexture(marble);
   const floor = useTexture(marblefloor)
-  let [distortion, setDistortion] = useState(0.00);
+  // let [distortion, setDistortion] = useState(0.00);
   let [waterHeight, setWaterHeight] = useState(minHeight)
   let [flow, setFlow]=useState('receding')
   //min distortion .00
@@ -19,13 +19,13 @@ export default function GlassFloor(props) {
 
   useEffect(() => {
 
-    const flowState = (() => {
-      if (distortion > maxDistortion) {
-        setFlow('receding')
-      } else if (distortion < minDistortion) {
-        setFlow('advancing')
-      }
-    })
+    // const flowState = (() => {
+    //   if (distortion > maxDistortion) {
+    //     setFlow('receding')
+    //   } else if (distortion < minDistortion) {
+    //     setFlow('advancing')
+    //   }
+    // })
     
     const heightState = (() => {
       if (waterHeight > maxHeight) {
@@ -90,7 +90,7 @@ export default function GlassFloor(props) {
       mixStrength={0.75}
       depthToBlurRatioBias={0.7}
       depthScale={0.5}
-      distortion={distortion}
+      distortion={0.015}
       distortionMap={distortionMap}>
       {(Material, props) => (
         <Material

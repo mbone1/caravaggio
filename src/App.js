@@ -7,18 +7,15 @@ import {  ActiveProvider} from './store.js';
 import BigBox from './Box'
 import data from './Paintings/data'
 import Painting from './Paintings/Scripts/Painting.js'
-// import { v4 as uuidv4 } from "uuid";
 
 export default function App() {
   let [counter, setCounter] = useState(0)
-  const [currentPainting, setCurrentPainting] = useState(data[counter]);
 
   function Loader() {
     const { progress } = useProgress();
     return (
       <Html center>
         <h1>CARAVAGGIO</h1>
-        {/* <span>{currentPainting}</span> */}
         <h2>{Math.trunc(progress)} % loaded</h2>
       </Html>
     );
@@ -27,15 +24,14 @@ export default function App() {
   function handleClick() {
     if (counter === data.length - 1) {
       setCounter(0)
-      setCurrentPainting(data[counter])
     } else {
       setCounter(counter+1);
-      setCurrentPainting(data[counter]);
     }
   }
    
   return (
     <Canvas
+      camera={{position: [10,20,20], fov: 15}}
       concurrent
       style={{ color: "white" }}
       camera={{ position: [0, 0, 5] }}>
@@ -52,7 +48,7 @@ export default function App() {
           <Painting counter={counter} index={1} />
           <Painting counter={counter}  index={2} />
           <Painting counter={counter}  index={3} />
-          <Painting counter={counter} currentpainting={currentPainting} index={4} />
+          <Painting counter={counter}  index={4} />
           <BigBox position={[0, 0, -4.7]} />
           <GlassFloor />
           <mesh onClick={(e) => handleClick()} position={[-8, -1.4, -3]}>

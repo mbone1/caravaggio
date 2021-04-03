@@ -23,12 +23,24 @@ export default function Painting(props) {
   let defaultPosition = [0, -20, 0];
   const defaultScale = [0, -3, -10];
     
+    
+    
   const zoomer = (e) => {
     setZoom(!zoom);
     if (!active) {
       setActive(!active);
     }
-  };
+    };
+    
+    // const coolSetZoom = (zoom, active) => {
+    //     let active = currentActive
+    //     if (!zoom | !active) {
+
+    //     } else if (!zoom )
+    //     setZoom(!zoom)
+    //     if (!active)
+    // }
+
 
   let posy = (e) => {
     if (props.counter === thisIndex) {
@@ -62,7 +74,7 @@ export default function Painting(props) {
 
     const { ...zoomProps } = useSpring({
     from : {position : [0,-20,0]},
-    scale: zoom ? [1, 1, 1] : [1, 1, 1],
+    // scale: zoom ? [1, 1, 1] : [1, 1, 1],
     position: zoom ? [0, 0, 0] : posy(),
     config: { mass: 1, tension: 175, friction: 60 },
   });
@@ -75,7 +87,8 @@ export default function Painting(props) {
 
     const { ...fadeIn } = useSpring({
     from: {lineHeight : 50, fillOpacity: 0},
-    lineHeight: active ? 50 : posDown(),
+    // lineHeight: active ? 50 : posDown(),
+    lineHeight: 1,
     fillOpacity: active ? 0 : posText(),
     config: { mass: 1, tension: 280, friction: 60 },
     });
@@ -107,7 +120,7 @@ export default function Painting(props) {
             position-z={stuff.coords.z}
             maxWidth={stuff.maxWidth}
             text={stuff.text}
-            fontSize={0.23}
+            fontSize={0.25}
             font={font}
           />
           <meshPhongMaterial attach="material" />

@@ -9,29 +9,29 @@ let data = [
   {
     name: {
       text: "The Taking of Christ",
-      coords: { x: 14.5, y: -2.15, z: -4.8 },
+      coords: { x: 14.1, y: -2.15, z: -4.8 },
       maxWidth: 10,
       size: 0.6,
     },
 
     description: {
       text:
-        "Commissioned by Roman nobleman Ciriaco Mattei in 1602, this painting depicts the arrest of Jesus.There are seven figures in the painting: from left to right they are John, Jesus, Judas, three soldiers (the one farthest to the right barely visible in the rear), and a man holding a lantern to the scene. They are standing, and only the upper three-quarters of their bodies are depicted. Judas has just kissed Jesus to identify him for the soldiers.  ",
-      coords: { x: 14.4, y: -1.5, z: -4.8 },
+        "Commissioned by Roman nobleman Ciriaco Mattei in 1602, this painting depicts the arrest of Jesus.There are seven figures in the painting: from left to right they are John, Jesus, Judas, three soldiers (the one farthest to the right barely visible in the rear), and a man holding a lantern to the scene. Judas has just kissed Jesus to identify him for the soldiers.  ",
+      coords: { x: 14.0, y: -1.5, z: -4.8 },
       maxWidth: 7,
       size: 0.3,
     },
     threeDFile: takingofchristframed,
     points: [
       [
-        [4.7, 4.7, -4.99],
+        [4.7, 5, -4.99],
         [6.7, 6.2, -4.1],
         [7.2, 6.2, -4.1],
       ],
       [
         [-3, 4, -4.68],
-        [-5, 5.45, -4.1],
-        [-6.5, 5.45, -4.1],
+        [-5, 5.95, -4.1],
+        [-6.7, 6.25, -4.1],
       ],
       [
         [0.5, 1.8, -4.99],
@@ -39,9 +39,9 @@ let data = [
         [7.2, 1.8, -4.1],
       ],
       [
-        [-4, 2.7, -4.68],
-        [-5, 3.45, -4.1],
-        [-6.49, 3.55, -4.1],
+        [-4, 2.8, -4.68],
+        [-5, 3.95, -4.1],
+        [-6.39, 4.25, -4.1],
       ],
     ],
 
@@ -49,27 +49,27 @@ let data = [
       {
         coords: { x: -7.9, y: -6.8, z: -4.8 },
         maxWidth: 7,
-        text: 
-          "The figure holding the lantern is believed to be a self-portrait of Caravaggio; also, presumably, representing St Peter, who would first betray Jesus by denying him, and then go on to bring 'the light of Christ' to the world.",
+        text:
+          "This figure holding the lantern may be a self portrait of Caravaggio.",
       },
       {
-        coords: { x: 9.8, y: -6, z: -4.8 },
+        coords: { x: 10, y: -6.9, z: -4.8 },
         maxWidth: 2.8,
         text:
           "One puzzling detail, the heads of Jesus and St. John seem to visually meld together.",
       },
       {
         coords: { x: -7.8, y: -2.1, z: -4.8 },
-        maxWidth: 6.8,
+        maxWidth: 5.3,
         text:
-          "In the very centre and foremost plane is the arresting officer's highly polished, metal-clad arm. It has been suggested that it was meant by the artist to serve as a mirror, a mirror of self-reflection and examination of conscience. In a sense, the artist may be 'inviting his viewers to see themselves reflected in the behaviour of Judas' through their own daily acts of betrayal of Jesus, that is, through their sin",
+          "The arresting officer's polished, metal-clad arm is highly detailed. It has been suggested that it was meant by the artist to serve as a mirror, intended to prompt the user to self reflect. In a sense, the artist may be 'inviting his viewers to see themselves reflected in the behaviour of Judas'.",
       },
 
       {
-        coords: { x: 11.8, y: -4, z: -4.8 },
+        coords: { x: 11.5, y: -4.7, z: -4.8 },
         maxWidth: 4.8,
         text:
-          "At the far left, St. John is fleeing; his arms are raised, his mouth is open in a gasp, his cloak is flying and being snatched back by a soldier. The flight of the terrified John contrasts with the entrance of the artists: scholars claim that Caravaggio is making the point that even a sinner one thousand years after the resurrection has a better understanding of Christ than does his friend",
+          "At the far left, St. John the Evangelist is seen fleeing; his arms are raised. The flight of the terrified John contrasts with the entrance of the artists(the man with the lantern).",
       },
     ],
   },
@@ -145,7 +145,6 @@ let data = [
     },
     threeDFile: david,
     points: [
- 
       [
         [-1.4, 4.4, -4.68],
         [-3, 5.25, -4.1],
@@ -156,20 +155,19 @@ let data = [
         [4.8, -0.4, -4.1],
         [7.2, 1.3, -4.1],
       ],
-
     ],
     info: [
       {
-        coords: { x: 10.8, y: -6, z: -4.8 },
-        maxWidth: 2.8,
+        coords: { x: 11.5, y: -6, z: -4.8 },
+        maxWidth: 3.4,
         text:
-          "The model for David in both this and the other version are thought by some as Cecco, a boy known to have been Caravaggio's servant in Rome in the early 17th century. Cecco may have been identical to Cecco Del Caravaggio, an artist active in Rome and painting very much in Caravaggio's manner.",
+          "The model for David in both this and the other version are thought by some to be Cecco, a boy known to have been Caravaggio's servant in Rome in the early 17th century. Although inconclusive the servant Cecco may be the same person as Cecco Del Caravaggio, an artist active in Rome and painting very much in Caravaggio's manner.",
       },
       {
         coords: { x: -7.9, y: -1.5, z: -4.8 },
         maxWidth: 3.8,
         text:
-          "Although the head here appears to be more of a generic face, in other versions of this scene Caravaggio used himself as a model.",
+          "In other versions of this scene Caravaggio used himself as a model for the head of Goliath.",
       },
     ],
     analysis: "https://www.kimbellart.org/collection/ap-198706",
@@ -177,109 +175,107 @@ let data = [
   {
     name: {
       text: "Saint Jerome Writing",
-      coords: { x: 14.5, y: -2.15, z: -4.8 },
+      coords: { x: 14.42, y: -2.15, z: -4.8 },
       maxWidth: 7,
       size: 0.6,
     },
     description: {
       text:
-        "Description goes here Description goes hereDescription goes hereDescription goes here",
+        "Generally dated to 1605-06, this painting depicts Saint Jerome, a Doctor of the Church in Roman Catholicism and a popular subject for painting. It has been suggested that Jerome is depicted in the act of producing the Vulgate, a late-4th-century Latin translation of the bible.",
       coords: { x: 14.4, y: -1.5, z: -4.8 },
       maxWidth: 7,
       size: 0.3,
     },
     threeDFile: stjerome,
     points: [
-
       [
-        [-0.4, 4.4, -4.68],
-        [-1, 6.25, -4.1],
+        [-2.8, 3.8, -4.68],
+        [-4, 5.0, -4.1],
         [-7.5, 5.45, -4.1],
       ],
       [
-        [3.7, 0.8, -4.99],
-        [3.8, 1.4, -4.1],
-        [7.2, 1.3, -4.1],
+        [3.7, 2.8, -4.99],
+        [3.8, 3.4, -4.1],
+        [7.2, 4.4, -4.1],
       ],
-      [
-        [-3, 2.2, -4.68],
-        [-4, 1.45, -4.1],
-        [-7.49, 2.55, -4.1],
-      ],
+      //   [
+      //     [-3, 2.2, -4.68],
+      //     [-4, 1.45, -4.1],
+      //     [-7.49, 2.55, -4.1],
+      //   ],
     ],
     info: [
       {
         coords: { x: 10.8, y: -6, z: -4.8 },
         maxWidth: 2.8,
-        text: "TEXT TEXT TEXT TEXT TEXT text text text text text",
+        text:
+          "Saint Jerome is often depicted with skulls, one of his symbols, a reminder of the ineveitability of death and vanity of worldly things.",
       },
       {
-        coords: { x: -7.9, y: -1.5, z: -4.8 },
+        coords: { x: -7.9, y: -4.9, z: -4.8 },
         maxWidth: 3.8,
-        text: "TEXT TEXT TEXT TEXT TEXT text text text text text",
+        text:
+          "Caravaggio used the same model for this painting as in his 'Saint Jerome in Meditation', also painted in 1605.",
       },
 
-      {
-        coords: { x: 11.8, y: -2.9, z: -4.8 },
-        maxWidth: 3.8,
-        text: "TEXT TEXT TEXT TEXT TEXT text text text text text",
-      },
+      //   {
+      //     coords: { x: 11.8, y: -2.9, z: -4.8 },
+      //     maxWidth: 3.8,
+      //     text: "TEXT TEXT TEXT TEXT TEXT text text text text text",
+      //   },
     ],
     analysis: "https://www.kimbellart.org/collection/ap-198706",
   },
   {
     name: {
       text: "The Incredulity of Saint Thomas",
-      coords: { x: 14.5, y: -3.15, z: -4.8 },
+      coords: { x: 14, y: -3.75, z: -4.8 },
       maxWidth: 7,
       size: 0.6,
     },
     description: {
-      text: "Description goes here",
-      coords: { x: 14.4, y: -1.9, z: -4.8 },
-      maxwidth: 7,
+      text:
+        "Painted in 1601-1602, this painting depicts a specific biblical passage: 'Unless I see the nail marks in his hands and put my finger where the nails were, and put my hand into his side, I will not believe it.' said St Thomas when first told of Jesus’ return beyond the grave. Yet in a week’s time Jesus appeared in front of him and said 'Put your finger here; see my hands. Reach out your hand and put it into my side. Stop doubting and believe.' ",
+      coords: { x: 14.0, y: -2.5, z: -4.8 },
+      maxWidth: 6,
       size: 0.3,
     },
     threeDFile: stthomas,
     points: [
-      // [
-      //   [4.7, 4.7, -4.99],
-      //   [6.7, 6.2, -4.1],
-      //   [7.2, 6.2, -4.1],
-      // ],
       [
-        [-0.4, 4.4, -4.68],
-        [-1, 6.25, -4.1],
+        [-1.3, 5.5, -4.68],
+        [-3, 6.0, -4.1],
         [-7.5, 5.45, -4.1],
       ],
       [
-        [3.7, 0.8, -4.99],
-        [3.8, 1.4, -4.1],
-        [7.2, 1.3, -4.1],
+        [.7, 5.6, -4.99],
+        [2, 5.4, -4.1],
+        [7.2, 4.3, -4.1],
       ],
-      [
-        [-3, 2.2, -4.68],
-        [-4, 1.45, -4.1],
-        [-7.49, 2.55, -4.1],
-      ],
+    //   [
+    //     [-3, 2.2, -4.68],
+    //     [-4, 1.45, -4.1],
+    //     [-7.49, 2.55, -4.1],
+    //   ],
     ],
     info: [
       {
         coords: { x: 10.8, y: -6, z: -4.8 },
         maxWidth: 2.8,
-        text: "TEXT TEXT TEXT TEXT TEXT text text text text text",
+        text:
+          "Some attribute Christ's lack of a halo to emphasize his new corporeality",
       },
       {
-        coords: { x: -7.9, y: -1.5, z: -4.8 },
+        coords: { x: -7.9, y: -4.7, z: -4.8 },
         maxWidth: 3.8,
-        text: "TEXT TEXT TEXT TEXT TEXT text text text text text",
+        text: "The two other Apostles in the background are Peter(older, bald gentleman) and John, both were present when Christ first re-appeared.",
       },
 
-      {
-        coords: { x: 11.8, y: -2.9, z: -4.8 },
-        maxWidth: 3.8,
-        text: "TEXT TEXT TEXT TEXT TEXT text text text text text",
-      },
+    //   {
+    //     coords: { x: 11.8, y: -2.9, z: -4.8 },
+    //     maxWidth: 3.8,
+    //     text: "TEXT TEXT TEXT TEXT TEXT text text text text text",
+    //   },
     ],
     analysis: "https://www.kimbellart.org/collection/ap-198706",
   },

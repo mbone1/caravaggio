@@ -37,14 +37,14 @@ export default function GlassFloor(props) {
     
     const waterEffect = setInterval(() => {
       if (flow === 'advancing') {
-        flowState()
+        // flowState()
         heightState()
         // console.log(flow)
         // setDistortion(distortion + 0.000001)
         setWaterHeight(waterHeight + 0.00009)
       }
       else if (flow === 'receding') {
-        flowState()
+        // flowState()
         heightState()
         // setDistortion(distortion - 0.000001)
         setWaterHeight(waterHeight - 0.00009)

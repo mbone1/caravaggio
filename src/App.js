@@ -35,7 +35,6 @@ export default function App() {
     concurrent
     style={{ color: "white" }}
     camera={{ position: [0, 0, 5] }}>
-     
       <Suspense fallback={<Loader />}>
         <ActiveProvider>
           <ambientLight intensity={0.83} />
@@ -54,18 +53,19 @@ export default function App() {
           <GlassFloor/>
           <mesh onClick={(e) => handleClick()} position={[-8, -1.4, -3]}>
             <boxBufferGeometry args={[1, 1, 1]} />
-      
             <meshStandardMaterial
               color={"darkgrey"}
               transparent></meshStandardMaterial>
           </mesh>
-      
-
         </ActiveProvider>
       </Suspense>
     </Canvas>
   );
 }
+     
+      
+      
+
 
 
 

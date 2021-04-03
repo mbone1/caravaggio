@@ -40,13 +40,13 @@ export default function GlassFloor(props) {
         flowState()
         heightState()
         // console.log(flow)
-        setDistortion(distortion + 0.000001)
+        // setDistortion(distortion + 0.000001)
         setWaterHeight(waterHeight + 0.00009)
       }
       else if (flow === 'receding') {
         flowState()
         heightState()
-        setDistortion(distortion - 0.000001)
+        // setDistortion(distortion - 0.000001)
         setWaterHeight(waterHeight - 0.00009)
       }
       // else if (distortion > maxDistortion) {

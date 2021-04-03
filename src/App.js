@@ -24,10 +24,18 @@ export default function App() {
   function handleClick() {
     if (counter === data.length - 1) {
       setCounter(0)
+      // setDistorter(distorter+0.01)
     } else {
       setCounter(counter+1);
     }
   }
+   
+  // function handleClick2() {
+ 
+  //     setDistorter(distorter+0.001)
+  //     // setDistorter(distorter+0.01)
+    
+  // }
    
   return (
     <Canvas
@@ -50,13 +58,22 @@ export default function App() {
           <Painting counter={counter}  index={3} />
           <Painting counter={counter}  index={4} />
           <BigBox position={[0, 0, -4.7]} />
-          <GlassFloor />
+          <GlassFloor
+/>
+      
           <mesh onClick={(e) => handleClick()} position={[-8, -1.4, -3]}>
             <boxBufferGeometry args={[1, 1, 1]} />
             <meshStandardMaterial
               color={"darkgrey"}
               transparent></meshStandardMaterial>
           </mesh>
+          {/* <mesh onClick={(e) => handleClick2()} position={[-8, 0, -3]}>
+            <boxBufferGeometry args={[1, 1, 1]} />
+            <meshStandardMaterial
+              color={"darkgrey"}
+              transparent></meshStandardMaterial>
+          </mesh> */}
+
         </ActiveProvider>
       </Suspense>
     </Canvas>

@@ -64,13 +64,13 @@ export default function Painting(props) {
       return 0;
     }
   };
-  let posDown = (e) => {
-    if (props.counter === thisIndex) {
-      return 1;
-    } else {
-      return 50;
-    }
-  };
+//   let posDown = (e) => {
+//     if (props.counter === thisIndex) {
+//       return 1;
+//     } else {
+//       return 50;
+//     }
+//   };
 
     const { ...zoomProps } = useSpring({
     from : {position : [0,-20,0]},

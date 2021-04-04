@@ -1,10 +1,11 @@
-import React, { useState, Suspense } from "react";
-import { Canvas } from "react-three-fiber";
+import React, { useState, Suspense, useRef } from "react";
+import { Canvas, useFrame } from "react-three-fiber";
 import "./index.css";
 import GlassFloor from './GlassFloor'
-import { useProgress, useTexture, Html, Text } from "@react-three/drei";
+import { useProgress, Html, Text } from "@react-three/drei";
 import { animated, useSpring } from "react-spring/three";
 import concrete from './conrete.jpg'
+import Texturizer from './Texturizer'
 // const boxSkin = useTexture(concrete);
 
 import {  ActiveProvider } from './store.js';
@@ -21,7 +22,10 @@ export default function App() {
   let [counter, setCounter] = useState(0)
   let [raise, setRaise] = useState(false)
   // const boxSkin = useTexture(concrete);
-
+  // const mesh = useRef();
+  // useFrame(() => {
+  //   mesh.current.rotation.y += 0.01;
+  // });
 
   function Loader() {
     const { progress } = useProgress();
@@ -64,7 +68,7 @@ export default function App() {
 
     const { ...raiseUp } = useSpring({
       // from: { position: [-8, , -3] },
-      position: raise ? [-8, -6.4, -3] : [-8, -10, -3],
+      position: raise ? [0, 0, 0] : [0, -3, 0],
       config: { mass: 20, tension: 280, friction: 200 },
     });
     // const { ...unWire } = useSpring({
@@ -89,12 +93,7 @@ export default function App() {
             penumbra={2}
             intensity={0.7}
           />
-          {/* <pointLight
-            position={(0, 15, 10)}
-            angle={0.7}
-            penumbra={2}
-            intensity={0.3}
-          /> */}
+
           <AnimatedText
             {...fadeIn}
             onClick={() => handleBegin()}
@@ -106,27 +105,57 @@ export default function App() {
             anchorY={1}
             position-z={-6.9}
           />
+
           <Intro counter={counter} index={0} />
           <Painting counter={counter} index={1} />
           <Painting counter={counter} index={2} />
           <Painting counter={counter} index={3} />
           <Painting counter={counter} index={4} />
           <Painting counter={counter} index={5} />
-          <BigBox
-          />
+
+          <BigBox raise={raise} />
+
           <GlassFloor />
-          <animated.mesh onClick={() => handleClick()}
-            {...raiseUp}
-          >
-            <boxBufferGeometry
-              // {...raiseUp}
-              args={[2, 9, 1]}
-              // texture={boxSkin}
+
+          <animated.group {...raiseUp}>
+            <mesh
+              // ref={mesh}
+              onClick={(e) => handleClick()}
+              position={[-7.9, -1.9, -3]}>
+              <sphereBufferGeometry args={[0.5, 8, 7]} />
+              <meshStandardMaterial
+                wireframe={true}
+                wireframeLinewidth={10}
+                // transparent={true}
+                opacity={0.4}
+                color={"grey"}
+                // map={boxSkin}
+              ></meshStandardMaterial>
+            </mesh>
+            <AnimatedText
+              // {...fadeIn}
+              onClick={() => handleClick()}
+              text={"NEXT"}
+              font={font}
+              maxWidth={12}
+              fontSize={0.4}
+              anchorX={8.45}
+              anchorY={1.6}
+              position-z={-3}
             />
-            <animated.meshStandardMaterial color={"darkgrey"}
+
+            <animated.mesh
+              position={[-8.0, -4, -3]}
+              onClick={() => handleClick()}>
+              <boxBufferGeometry args={[1.5, 3, 0.5]} />
+
+              <Texturizer />
+
+              {/* <animated.meshStandardMaterial color={"darkgrey"}
            
-            ></animated.meshStandardMaterial>
-          </animated.mesh>
+            ></animated.meshStandardMaterial> */}
+            </animated.mesh>
+          </animated.group>
         </ActiveProvider>
       </Suspense>
     </Canvas>

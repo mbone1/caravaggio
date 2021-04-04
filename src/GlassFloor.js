@@ -87,11 +87,12 @@ export default function GlassFloor(props) {
       mirror={1}
       position={[-0.0, waterHeight, -1]}
       rotation={[-1.26, 0, 0]}
-      mixStrength={0.75}
-      depthToBlurRatioBias={0.7}
-      depthScale={0.5}
-      distortion={0.015}
-      distortionMap={distortionMap}>
+      mixStrength={0.85}
+      depthToBlurRatioBias={0.9}
+      depthScale={0.9}
+      distortion={0.001}
+      // distortionMap={distortionMap}
+    >
       {(Material, props) => (
         <Material
           normalMap={floor}

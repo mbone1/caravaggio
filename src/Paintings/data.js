@@ -6,6 +6,19 @@ import stjerome from "./3d Files/stjeromeframed.glb";
 import stthomas from "./3d Files/theincredulityofstthomas.glb";
 
 let data = [
+    {
+        title: {
+            text: "Caravaggio",
+            fontSize: 0.5
+        },
+        content: {
+            text: "",
+            fontSize: 0.5
+        }
+      
+  },  
+
+
   {
     name: {
       text: "The Taking of Christ",

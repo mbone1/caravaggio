@@ -19,10 +19,9 @@ let font = "https://fonts.gstatic.com/s/quicksand/v7/6xKtdSZaM9iE8KbpRA_hK1QL.wo
 
 export default function App() {
   const AnimatedText = animated(Text);
-  // let [counter, setCounter] = useState(0)
   let [raise, setRaise] = useState(false)
-  
-  let posText = (e) => {
+
+  let posText = () => {
     if (raise === false) {
       return 1;
     } else {
@@ -30,24 +29,17 @@ export default function App() {
     }
   };
 
-  // function handleClick() {
-  //   if (counter === data.length - 1) {
-  //     setCounter(0)
-  //   } else {
-  //     setCounter(counter+1);
-  //   }
-  // }
-  
   function handleBegin() {
-    // setCounter(1)
     setRaise(true)
   }
-
+  
   const { ...fadeIn } = useSpring({
     from: { fillOpacity: 0 },
     fillOpacity: raise ? 0 : posText(),
     config: { mass: 1, tension: 280, friction: 60 },
   });
+  
+
 
   return (
     <Canvas

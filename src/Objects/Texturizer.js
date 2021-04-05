@@ -1,4 +1,4 @@
-import concrete from "./concrete.jpg";
+import concrete from "./texture/concrete.jpg";
 import { useTexture } from "@react-three/drei";
 
 export default function Texturizer() {
@@ -7,7 +7,7 @@ export default function Texturizer() {
         <meshPhongMaterial
             map={boxSkin}>
             </meshPhongMaterial>
-            
     )
-
 }
+            
+

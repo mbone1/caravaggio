@@ -1,15 +1,15 @@
 
 import React, { useState, useEffect }from "react";
 import {Reflector, useTexture} from "@react-three/drei";
-import marble from "./marble.jpg";
-import marblefloor from './water.jpg'
+// import marble from "./marble.jpg";
+import marblefloor from './texture/water.jpg'
 
 export default function GlassFloor(props) {
   // let maxDistortion = .015
   // let minDistortion = 0
   let maxHeight = -4.4
   let minHeight = -4.8
-  const distortionMap = useTexture(marble);
+  // const distortionMap = useTexture(marble);
   const floor = useTexture(marblefloor)
   // let [distortion, setDistortion] = useState(0.00);
   let [waterHeight, setWaterHeight] = useState(minHeight)

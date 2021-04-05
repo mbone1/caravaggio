@@ -1,24 +1,24 @@
-import React, { useState } from "react";
-import { useLoader } from "react-three-fiber";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import { a, useSpring, animated } from "react-spring/three";
-import { useActiveStore, ActiveContext } from "../../store.js";
-import data from "../data.js";
-import { Line, Text } from "@react-three/drei";
-import { v4 as uuidv4 } from "uuid";
+import React from "react";
+import { Text } from "@react-three/drei";
+import { useSpring, animated } from "react-spring/three";
+import { useCounterStore } from "../../Stores/counterStore";
+
+
 
 
 
 export default function Intro(props) {
+  const [counter] = useCounterStore()
   let thisIndex = props.index;
   let font =
     "https://fonts.gstatic.com/s/quicksand/v7/6xKtdSZaM9iE8KbpRA_hK1QL.woff";
   const AnimatedText = animated(Text);
+
 //   const gltf = useLoader(GLTFLoader, model);
-  let defaultPosition = [0, -20, 0];
+  // let defaultPosition = [0, -20, 0];
 
  let posText = (e) => {
-   if (props.counter === thisIndex) {
+   if (counter === thisIndex) {
      return 1;
    } else {
      return 0;
@@ -26,7 +26,7 @@ export default function Intro(props) {
  };
 
     let posDown = (e) => {
-      if (props.counter === thisIndex) {
+      if (counter === thisIndex) {
         return 1;
       } else {
         return 50;

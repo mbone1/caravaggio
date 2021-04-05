@@ -1,16 +1,14 @@
 import React, { useRef } from "react";
 import { useFrame } from "react-three-fiber";
-import concrete from "./concrete.jpg";
-import { useTexture, Text } from "@react-three/drei";
+import { Text } from "@react-three/drei";
 import { useSpring, animated } from "react-spring/three";
 import Texturizer from './Texturizer'
+import { useActiveStore, ActiveContext } from "../Stores/store.js";
 
 
-import { useActiveStore, ActiveContext } from "./store.js";
 
-export default function BigBox(props) {
+export default function RightPillar(props) {
   const [active, setActive] = useActiveStore(ActiveContext);
-  const boxSkin = useTexture(concrete);
   let font =
     "https://fonts.gstatic.com/s/quicksand/v7/6xKtdSZaM9iE8KbpRA_hK1QL.woff"; 
 
@@ -20,7 +18,6 @@ export default function BigBox(props) {
   };
 
    const { ...raiseUp } = useSpring({
-     // from: { position: [-8, , -3] },
      from: {position: [0, -3, 0]},
      position: props.raise ? [0, 0, 0] : [0, -3, 0],
      config: { mass: 20, tension: 280, friction: 200 },
@@ -28,7 +25,15 @@ export default function BigBox(props) {
 
   const mesh = useRef();
   useFrame(() => {
-    mesh.current.rotation.y += 0.01;
+    function spingus() {
+      if (active === true) {
+        return -0.007
+      }
+      else {
+        return 0.02
+      }
+    }
+    mesh.current.rotation.x = mesh.current.rotation.y = mesh.current.rotation.z += spingus();
   });
   return (
     <animated.group

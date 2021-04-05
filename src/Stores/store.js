@@ -2,7 +2,7 @@ import React, { useState, createContext, useContext } from "react";
 
 export const ActiveContext = createContext();
 export const ActiveProvider = (props) => {
-  const [active, setActive] = useState(false);
+  const [active, setActive] = useState(true);
   return (
     <ActiveContext.Provider
       value={[active, setActive]}

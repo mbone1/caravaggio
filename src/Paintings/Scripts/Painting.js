@@ -3,10 +3,10 @@ import { useLoader } from "react-three-fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { a, useSpring, animated } from "react-spring/three";
 import { useActiveStore, ActiveContext } from "../../Stores/store.js";
+import { useCounterStore } from "../../Stores/counterStore";
 import data from "../data.js";
 import { Line, Text } from "@react-three/drei";
 import { v4 as uuidv4 } from 'uuid';
-import { useCounterStore } from "../../Stores/counterStore";
 
 
 //this script creates a painting for each object in the data file

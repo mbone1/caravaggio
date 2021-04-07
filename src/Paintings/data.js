@@ -4,6 +4,7 @@ import cardsharps from "./3d Files/cardsharps.glb";
 import david from "./3d Files/davidwithheadofgoliath.glb";
 import stjerome from "./3d Files/stjeromeframed.glb";
 import stthomas from "./3d Files/theincredulityofstthomas.glb";
+import myhead from './3d Files/myhead.glb'
 
 let data = [
   {
@@ -11,10 +12,21 @@ let data = [
       text: "Caravaggio",
       fontSize: 0.5,
     },
-    content: {
-      text: "",
-      fontSize: 0.5,
+    info : [
+    {
+      text: "INFO : WIKIPEDIA",
+      pos: { x: -8, y: -7.7, z: -6.9 },
     },
+    {
+      text: "IMAGE SOURCE : WIKIMEDIA",
+      pos: { x: -8, y: -6.1, z: -6.9 },
+    },
+    {
+      text: "CREATED BY : MATTHEW BONNEVILLE",
+      pos: { x: -8, y: -4.5, z: -6.9 },
+      },
+    ],
+    threeDFile: myhead,
   },
   {
     name: {
@@ -138,11 +150,7 @@ let data = [
         [3.8, 3.4, -4.1],
         [7.2, 4.4, -4.1],
       ],
-      //   [
-      //     [-3, 2.2, -4.68],
-      //     [-4, 1.45, -4.1],
-      //     [-7.49, 2.55, -4.1],
-      //   ],
+      
     ],
     info: [
       {
@@ -157,14 +165,7 @@ let data = [
         text:
           "Caravaggio used the same model for this painting as in his 'Saint Jerome in Meditation', also painted in 1605.",
       },
-
-      //   {
-      //     coords: { x: 11.8, y: -2.9, z: -4.8 },
-      //     maxWidth: 3.8,
-      //     text: "TEXT TEXT TEXT TEXT TEXT text text text text text",
-      //   },
     ],
-    analysis: "https://www.kimbellart.org/collection/ap-198706",
   },
   {
     name: {
@@ -259,11 +260,6 @@ let data = [
         [1.3, 5.6, -4.1],
         [7.2, 5.6, -4.1],
       ],
-      //   [
-      //     [-3, 2.2, -4.68],
-      //     [-4, 1.45, -4.1],
-      //     [-7.49, 2.55, -4.1],
-      //   ],
     ],
     info: [
       {
@@ -278,14 +274,7 @@ let data = [
         text:
           "The two other Apostles in the background are Peter(older, bald gentleman) and John, both were present when Christ first re-appeared.",
       },
-
-      //   {
-      //     coords: { x: 11.8, y: -2.9, z: -4.8 },
-      //     maxWidth: 3.8,
-      //     text: "TEXT TEXT TEXT TEXT TEXT text text text text text",
-      //   },
     ],
-    analysis: "https://www.kimbellart.org/collection/ap-198706",
   },
 ];
 

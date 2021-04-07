@@ -89,7 +89,7 @@ export default function Painting(props) {
               <AnimatedLine key={uuidv4()} points={datapoints} color="white" {...spingus} />
           ))}
     
-          {data[thisIndex].info.map((stuff, index) => (
+          {data[thisIndex].info.map((stuff) => (
             <>
               <AnimatedText
                 {...fadeIn}
